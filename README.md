@@ -1,2 +1,2 @@
 # P2-WhatToWatch
-An application that presents online entertainment from live streamers, saved videos, and a chat system with other viewers and users. Users can navigate through live Twitch videos as well as Youtube videos. Once a User has made an account, they will be able to join a live chat and communicate with other users viewing the same video. Users can also become moderators who or even pay to become and administrator. 
+Stahp redding meeeeeee
