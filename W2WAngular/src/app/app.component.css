@@ -20,6 +20,9 @@ h1
 
 .nav
 {
+    -webkit-box-shadow: 0px -50px 131px 48px rgba(0,0,0,0.75);
+-moz-box-shadow: 0px -50px 131px 48px rgba(0,0,0,0.75);
+box-shadow: 0px -50px 131px 48px rgba(0,0,0,0.75);
     font-size: 20px;
     font-weight: 900;
     border:1px solid rgba(0, 0, 0, 0.781);
@@ -75,9 +78,9 @@ body
 
 fieldset 
 {
-    -webkit-box-shadow: 0px -14px 93px 13px rgba(0,0,0,1);
-    -moz-box-shadow: 0px -14px 93px 13px rgba(0,0,0,1);
-    box-shadow: 0px -14px 93px 13px rgba(0,0,0,1);
+    -webkit-box-shadow: 0px 14px 111px 9px rgba(0,0,0,0.75);
+    -moz-box-shadow: 0px 14px 111px 9px rgba(0,0,0,0.75);
+    box-shadow: 0px 14px 111px 9px rgba(0,0,0,0.75);
     border-radius: 8px;
     border-color:  rgba(0, 0, 0, 0.781);
     width: 50%;
@@ -151,9 +154,9 @@ footer
 
 .footer 
 {
-    -webkit-box-shadow: 4px 16px 93px 13px rgba(0,0,0,1);
-    -moz-box-shadow: 4px 16px 93px 13px rgba(0,0,0,1);
-    box-shadow: 4px 16px 93px 13px rgba(0,0,0,1);
+    -webkit-box-shadow: 0px 14px 111px 9px rgba(0,0,0,0.75);
+    -moz-box-shadow: 0px 14px 111px 9px rgba(0,0,0,0.75);
+    box-shadow: 0px 14px 111px 9px rgba(0,0,0,0.75);
     border-radius: 15px;
     background: #ffffffc9;
     height: 50px;
