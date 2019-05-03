@@ -1,19 +1,52 @@
-<!--The content below is only a placeholder and can be replaced.-->
+
+  <video autoplay muted loop id="myVideo">
+      <source src="https://fpdl.vimeocdn.com/vimeo-prod-skyfire-std-us/01/1757/7/183786810/604917736.mp4?token=1556865782-0x98fb39aee5a37822147167a30ca0a1e0740cb6fb" type="video/mp4">
+  </video>
+
+<header>
+  <ul class="nav">
+      <li>
+      <a href="./HomePage.html"><img src="http://cdn.onlinewebfonts.com/svg/img_311846.png" alt="login icon" style="width:15px;height:15px;">Login</a>
+      </li>
+  </ul>
+</header>
+
 <div style="text-align:center">
   <h1>
-    Welcome to {{ title }}!
-  </h1>
-  <img src="https://cdn.cnn.com/cnnnext/dam/assets/161018115146-what-to-watch-logo2-large-169.png" width="600" height="200" alt="WhatToWatch Logo">
+    <!-- Welcome to {{ title }}! -->
+<img src="https://cdn.cnn.com/cnnnext/dam/assets/161018115146-what-to-watch-logo2-large-169.png" width="600" height="200" alt="WhatToWatch Logo">
+</h1> 
 </div>
-<br><br>
-<div class = "body">
-<h2>Welcome To What To Watch!!</h2>
-  <p class = "parag">
-  Welcome to NOT Twitch<br>
-  Then the question is<br>
-  What's to Watch?!<br>
-  </p>
-</div>
+
+<main class = "home-search">
+<fieldset>
+  <legend>Welcome!</legend>
+    <div class = "body">
+        <p class = "parag">
+        Search here to find what<br>
+        live or stored videos you are<br>
+        looking for<br>
+        </p>
+    </div>
+
+    <div id="container">
+        <input type="text" id="input-area" placeholder="Search for Videos!!">
+        <br>
+        <button id="submit-btn">Search</button>
+    </div>
+</fieldset>
+</main> 
+
+<footer>
+  <br><br><br>
+      <div class="footer">
+      Does not endorse or reflect the views/opinions nor 
+      anyone involved in  the producing or managing of Twitch. Twitch  
+      is a registered trademark of Amazon, Inc.
+      ©Amazon, Inc.
+      <br>
+      </div>
+</footer>
 
 
 <router-outlet></router-outlet>
