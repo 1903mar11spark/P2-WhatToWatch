@@ -34,12 +34,19 @@ h1
 
 .nav li
 {
+    
     text-decoration: none;
     display:inline;
 }
 
 .nav a
 {
+    border-radius: 20px;
+    -webkit-box-shadow: -7px 0px 10px 0px rgba(255, 255, 255, 0.664), 7px 0px 10px 0px rgba(255, 255, 255, 0.664);
+    -moz-box-shadow: -7px 0px 20px 0px rgba(255, 255, 255, 0.664), 7px 0px 20px 0px rgba(255, 255, 255, 0.664);
+    box-shadow: -7px 0px 10px 0px rgba(255, 255, 255, 0.664), rgba(255, 255, 255, 0.664);  
+    background-color: rgba(255, 255, 255, 0.623);
+    width:100px;
     text-decoration: none;
     display:inline-block;
     padding:10px;
@@ -48,10 +55,10 @@ h1
 li a:hover 
 {
     border-radius: 20px;
-    -webkit-box-shadow: -7px 0px 10px 0px rgba(255, 255, 255, 0.664), 7px 0px 10px 0px rgba(255, 255, 255, 0.664);
-    -moz-box-shadow: -7px 0px 20px 0px rgba(255, 255, 255, 0.664), 7px 0px 20px 0px rgba(255, 255, 255, 0.664);
-    box-shadow: -7px 0px 10px 0px rgba(255, 255, 255, 0.664), rgba(255, 255, 255, 0.664);  
-    background-color: rgba(255, 255, 255, 0.623);
+    -webkit-box-shadow: -7px 0px 10px 0px rgba(245, 179, 179, 0.815), 7px 0px 10px 0px rgba(245, 179, 179, 0.815);
+    -moz-box-shadow: -7px 0px 20px 0px rgba(245, 179, 179, 0.815), 7px 0px 20px 0px rgba(245, 179, 179, 0.815);
+    box-shadow: -7px 0px 10px 0px rgba(245, 179, 179, 0.815), rgba(245, 179, 179, 0.815)rgba(255, 255, 255, 0.664);  
+    background-color: rgba(245, 179, 179, 0.815);
     width:100px;
 }
 
@@ -75,7 +82,7 @@ fieldset
     width: 50%;
     margin: 0 auto;
     text-align: center;
-    background: #ffffffde;
+    background: #ffffffc9;
 }
 
 
@@ -92,7 +99,6 @@ main.home-search div input[type=text]
     -webkit-box-shadow: inset 0px 0px 64px 6px rgba(158, 82, 82, 0.815);
     -moz-box-shadow: inset 0px 0px 64px 6px rgba(158, 82, 82, 0.815);
     box-shadow: inset 0px 0px 64px 6px rgba(158, 82, 82, 0.815);
-    background-color:rgba(255, 255, 255, 0.233);
     border-radius: 5px;
     border-width: 1.5px;
     display: inline-block;
@@ -144,15 +150,15 @@ footer
 
 .footer 
 {
-    /* -webkit-box-shadow: 4px 16px 93px 13px rgba(0,0,0,1);
+    -webkit-box-shadow: 4px 16px 93px 13px rgba(0,0,0,1);
     -moz-box-shadow: 4px 16px 93px 13px rgba(0,0,0,1);
-    box-shadow: 4px 16px 93px 13px rgba(0,0,0,1); */
+    box-shadow: 4px 16px 93px 13px rgba(0,0,0,1);
     border-radius: 15px;
-    background: #ffffff4d;
+    background: #ffffffc9;
     height: 50px;
     margin: auto;
     width: 400px;
     text-align:center;
     padding:10px;
-    color:#02020273;
+    color:#00000059;
 }
