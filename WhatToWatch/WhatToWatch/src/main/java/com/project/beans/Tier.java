@@ -13,7 +13,7 @@ public class Tier {
 		super();
 	}
 	
-	public Tier(int tierId, String userTier) {
+	public Tier(int tierId, UserTier userTier) {
 		super();
 		this.tierId = tierId;
 	}
@@ -22,7 +22,7 @@ public class Tier {
 	private int tierId;
 	
 	
-	private String userTier = "basic";//default basic, upgrade to premium then Moderator
+	private UserTier userTier;
 	
 	
 	public int getTierId() {
@@ -31,11 +31,11 @@ public class Tier {
 	public void setTierId(int tierId) {
 		this.tierId = tierId;
 	}
-	public String getUserTier() {
+	public UserTier getUserTier() {
 		return userTier;
 	}
 
-	public void setUserTier(String userTier) {
+	public void setUserTier(UserTier userTier) {
 		this.userTier = userTier;
 	}
 
