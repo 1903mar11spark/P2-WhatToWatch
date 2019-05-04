@@ -19,11 +19,11 @@ public class Credentials {
 		super();
 	}
 	
-	public Credentials(User user, String username, String mothersMaidanName) {
+	public Credentials(User user, String username, String favoriteChildhoodPet) {
 		super();
 		this.user=user;
 		this.username=username;
-		this.mothersMaidanName=mothersMaidanName;
+		this.favoriteChildhoodPet=favoriteChildhoodPet;
 	}
 	
 	public Credentials(int credsId, User user, String username, String password) {
@@ -51,8 +51,8 @@ public class Credentials {
 	private String password;
 	
 
-	@Column(name="MOTHERS_MAIDAN_NAME")
-	private String mothersMaidanName;
+	@Column(name="FAV_CHILDHOOD_PET")
+	private String favoriteChildhoodPet;
 
 	
 	public int getCredsId() {
