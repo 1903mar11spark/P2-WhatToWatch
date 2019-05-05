@@ -12,7 +12,9 @@ import javax.persistence.Table;
 @Table(name="ADMID")
 public class Admin {
 	
-	
+	public Admin() {
+		super();
+	}
 	
 	public Admin(int admindId, Credentials creds, String firstname, String lastname) {
 		super();

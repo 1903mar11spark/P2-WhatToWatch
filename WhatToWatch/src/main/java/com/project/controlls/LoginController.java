@@ -1,28 +1,57 @@
 package com.project.controlls;
 
-import org.springframework.http.MediaType;
+
+
+import org.springframework.http.HttpRequest;
 import org.springframework.stereotype.Controller;
-import org.springframework.util.MultiValueMap;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.servlet.mvc.support.RedirectAttributes;
-import org.springframework.web.servlet.view.RedirectView;
+import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.RequestMapping;
+
+import com.project.beans.Admin;
+import com.project.beans.Credentials;
+import com.project.beans.User;
+import com.project.dao.AdminDAO;
+import com.project.dao.CredsDAO;
+import com.project.dao.UserDAO;
 
 @Controller
 public class LoginController {
+		
+	UserDAO userDAO = new UserDAOImpl();
+	CredsDAO credsDAO = new CredsDAOImpl();
+	AdminDAO adminDAO = new AdminDAOImpl();
+	User user = new User();	
+	Admin admin = new Admin();
 	
-	@GetMapping(value="/login")
-	public String getStaticLoginPage() {
-		return "forward:/static/login.html";
-	}
-	
-	@PostMapping(value="/login", consumes=MediaType.APPLICATION_FORM_URLENCODED_VALUE)//default is JSON
-	public RedirectView handFormRequest(@RequestBody MultiValueMap<String, String> formParam, RedirectAttributes attributes) {
-		attributes.addFlashAttribute("username", formParam.getFirst("username"));
-		attributes.addFlashAttribute("password", formParam.get("password"));
-		//could also grab password, do some authentication
-		return new RedirectView("profile");
+	@RequestMapping("/profile")
+	public String display(HttpRequest req, Model m) {
+		String username = req.getParamater("username");
+		String password = req.getParamater("password");
+		
+		Credentials creds = new Credentials(username, password);
+		
+		if(credsDAO.loginExsit(creds)) {
+			user = new User(userDAO.getUserByCreds(creds));
+			if(user == null) {
+				admin = new Admin(adminDAO.getAdminByCreds(creds));
+				String  msg = "Hello " + admin.getFirstname();
+				m.addAttribute("message", msg);
+				return "profile";
+			}else {
+				String  msg = "Hello " + admin.getFirstname();
+				m.addAttribute("message", msg);
+				return "profile";
+			}
+		}else {
+			String msg = "Sorry " + username + ". You entered an incorrect username and/or password.";
+			m.addAttribute("message", msg);
+			return "errorpage";
+		}
+		
+		
+		;		
+		
+		
 	}
 
 }

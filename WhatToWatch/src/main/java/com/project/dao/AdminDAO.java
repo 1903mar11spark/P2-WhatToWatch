@@ -13,6 +13,7 @@ public interface AdminDAO {//us, as employees
 	public List<User> getAllUser(Admin admin);
 	public List<User> getAllByTier(Tier tier);
 	public boolean deleteUser(Admin admin);
+	public Admin createAdmin(Admin admin);
 	
 	
 
