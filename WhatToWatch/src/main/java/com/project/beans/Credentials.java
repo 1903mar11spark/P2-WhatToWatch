@@ -19,19 +19,25 @@ public class Credentials {
 		super();
 	}
 	
-	public Credentials(User user, String username, String favoriteChildhoodPet) {
+	public Credentials(int credsId, String username, String password) {
 		super();
-		this.user=user;
+		this.credsId=credsId;
+		this.username=username;
+		this.password=password;
+	}
+	
+	public Credentials( String username, String favoriteChildhoodPet) {
+		super();
 		this.username=username;
 		this.favoriteChildhoodPet=favoriteChildhoodPet;
 	}
 	
-	public Credentials(int credsId, User user, String username, String password) {
+	public Credentials(int credsId, String username, String password, String favoriteChildhoodPet) {
 		super();
 		this.credsId = credsId;
-		this.user=user;
 		this.username = username;
 		this.password = password;
+		this.favoriteChildhoodPet = favoriteChildhoodPet;
 	}
 
 	@Id// indecates a primary key
@@ -40,9 +46,8 @@ public class Credentials {
 	@Column(name="CREDS_ID")
 	private int credsId;
 	
-	@OneToOne(fetch=FetchType.EAGER)
-	@JoinColumn(name="CREDS_ID")
-	private User user;
+	
+
 	
 	@Column(name="USERNAME")
 	private String username;
@@ -80,19 +85,13 @@ public class Credentials {
 	}
 
 
-	public User getUser() {
-		return user;
-	}
 
-	public void setUser(User user) {
-		this.user = user;
-	}
 
 	
 
 	@Override
 	public String toString() {
-		return "Credentials [credsId=" + credsId + ", user=" + user + ", username=" + username + ", password="
+		return "Credentials [credsId=" + credsId + ", username=" + username + ", password="
 				+ password + "]";
 	}
 
