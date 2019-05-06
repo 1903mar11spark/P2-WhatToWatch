@@ -10,11 +10,8 @@ import com.project.beans.User;
 public interface AdminDAO {//us, as employees
 	
 	public Admin getAdminByCreds(Credentials creds);
-	public List<User> getAllUser(Admin admin);
-	public List<User> getAllByTier(Tier tier);
-	public boolean deleteUser(Admin admin);
-	public Admin createAdmin(Admin admin);
-	
-	
+	public List<User> getAllUser();
+	public List<User> getAllByTier(Tier tier);	
+
 
 }

@@ -6,9 +6,10 @@ import com.project.beans.User;
 public interface UserDAO {
 	
 	public User getUserByCreds(Credentials creds);
-	public boolean updateUser(User user);
-	public User createUser(User user);
-	public boolean delete(User user);
+	public User getUserById(int userId);
+	public void updateUser(User user);
+	public void createUser(User user);
+	public void delete(User user);
 	
 
 }
