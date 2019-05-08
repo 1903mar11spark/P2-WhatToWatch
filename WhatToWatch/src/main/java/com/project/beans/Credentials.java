@@ -18,6 +18,7 @@ public class Credentials {
 	public Credentials() {
 		super();
 	}
+
 	
 	public Credentials(int credsId, String username, String password) {
 		super();

@@ -51,16 +51,44 @@ public class AdminDAOImpl implements AdminDAO {
 	//RETRIEVES ALL USERS BY TIER
 	@Override
 	public List<User> getAllByTier(Tier tier) {
-		List<User> tierusers = new ArrayList<User>();
+		List<User> tierUsers = new ArrayList<User>();
 		try (Session session = sf.getCurrentSession()){
 			Transaction tx = session.beginTransaction();
 			String hql = "FROM User WHERE tier = :tierVar";
 			Query query = session.createQuery(hql);
 			query.setParameter("tierVar", tier);
-			tierusers = query.getResultList();
+			tierUsers = query.getResultList();
 			tx.commit();
 		}
-		return tierusers;
+		return tierUsers;
+	}
+
+	@Override
+	public boolean deleteUser(Admin admin) {
+		if(admin !=null) {
+		Session session = sf.openSession();
+		Transaction tx = session.beginTransaction();
+		session.delete(admin);
+		tx.commit();
+		session.close();
+		return true;
+		}else {
+			return false;
+		}
+	}
+
+	@Override
+	public Admin createAdmin(Admin admin) {
+		if(admin != null) {
+		Session session = sf.openSession();
+		Transaction tx = session.beginTransaction();
+		session.save(admin);
+		tx.commit();
+		session.close();
+		return admin;
+		}else {
+			return null;
+		}
 	}
 
 	
