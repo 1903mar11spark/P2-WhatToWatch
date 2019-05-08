@@ -8,5 +8,4 @@ public interface TierDAO {
 	public Tier getTier(User user);
 	public boolean updateTier(Admin admin);
 	public Tier createTier(Tier tier);
-
 }

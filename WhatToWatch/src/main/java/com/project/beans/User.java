@@ -31,8 +31,8 @@ public class User {
 	}
 	
 	@Id// indecates a primary key
-	@GeneratedValue(strategy = GenerationType.AUTO, generator = "userIdSequence")
-	@SequenceGenerator(allocationSize=1, name="userIdSequence", sequenceName="SQ_USER_PK")
+	@GeneratedValue(strategy = GenerationType.AUTO, generator = "uIdSequence")
+	@SequenceGenerator(allocationSize=1, name="uIdSequence", sequenceName="SQ_U_PK")
 	@Column(name="USER_ID")
 	private int userId;
 	

@@ -13,14 +13,16 @@ public class Tier {
 		super();
 	}
 	
-	public Tier(int tierId, UserTier userTier) {
+	public Tier(int tierId,User user, UserTier userTier) {
 		super();
 		this.tierId = tierId;
 	}
+	
 	@Id
 	@Column(name="TIER_ID")
 	private int tierId;
 	
+	private User user;
 	
 	private UserTier userTier;
 	
