@@ -6,7 +6,7 @@ import org.hibernate.Transaction;
 
 import com.project.beans.Credentials;
 import com.project.beans.User;
-import com.revature.util.ConnectionUtil;
+import com.project.util.ConnectionUtil;
 
 public class CredsDAOImpl implements CredsDAO {
 

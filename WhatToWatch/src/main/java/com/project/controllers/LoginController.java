@@ -1,4 +1,4 @@
-package com.project.controlls;
+package com.project.controllers;
 
 import org.springframework.http.MediaType;
 import org.springframework.stereotype.Controller;
