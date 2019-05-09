@@ -10,11 +10,7 @@ import { AuthService } from './auth.service'
 import { UserService } from './user.service'
 import { AuthGuard } from './auth.guard';
 import { LogoutComponent } from './logout/logout.component';
-import { CreateUserComponent } from './component/create-user/create-user.component';
-import { UserComponent } from './component/user/user.component';
-import { ComponentComponent } from './component/component.component';
-import { UsersComponent } from './component/users/users.component';
-import { AddUserComponent } from './component/add-user/add-user.component'
+
 
 @NgModule({
   declarations: [
@@ -22,12 +18,7 @@ import { AddUserComponent } from './component/add-user/add-user.component'
     LoginComponent,
     AdminComponent,
     HomeComponent,
-    LogoutComponent,
-    CreateUserComponent,
-    UserComponent,
-    ComponentComponent,
-    UsersComponent,
-    AddUserComponent
+    LogoutComponent
   ],
   imports: [
     BrowserModule,
