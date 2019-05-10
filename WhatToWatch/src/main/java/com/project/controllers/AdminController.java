@@ -21,16 +21,7 @@ public class AdminController {
 	
 	private AdminService aService;
 	
-	@GetMapping(value = "/{tier}") // from the admin side
-	public ResponseEntity<List<User>> getFlashcardById(@PathVariable Tier tier) {
-		List<User> users = new ArrayList<>();
-		users = aService.getAllUsersByTier(tier);
-		if (users == null) {
-			return new ResponseEntity<>(null, HttpStatus.BAD_REQUEST);
-		} else {
-			return new ResponseEntity<>(users, HttpStatus.OK);
-		}
-	}
+
 	
 	@RequestMapping(value="/all", method = RequestMethod.GET)
 	public ResponseEntity<List<User>> getAllUser(){
@@ -38,13 +29,13 @@ public class AdminController {
 	}
 	
 	@DeleteMapping
-	public ResponseEntity<String> deleteFlashcard(@RequestBody Admin admin){
+	public ResponseEntity<String> deleteAdmin(@RequestBody Admin admin){
 		ResponseEntity<String> resp = null;
 		try {
-			aService.deleteUser();
-			resp = new ResponseEntity<>("FLASHCARD DELETED SUCCESSFULLY", HttpStatus.OK);
+			aService.deleteAdmin(admin);
+			resp = new ResponseEntity<>("ADMIN DELETED SUCCESSFULLY", HttpStatus.OK);
 		} catch (Exception e) {
-			resp = new ResponseEntity<>("FAILED TO DELETE FLASHCARD", HttpStatus.BAD_REQUEST);
+			resp = new ResponseEntity<>("FAILED TO DELETE ADMIN", HttpStatus.BAD_REQUEST);
 		}
 		return resp;
 	}

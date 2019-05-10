@@ -21,7 +21,7 @@ public class User {
 		super();
 	}
 	
-	public User(int userId, Credentials creds, Tier tier, String firstname, String lastname, String email) {
+	public User(int userId, Creds creds, Tier tier, String firstname, String lastname, String email) {
 		super();
 		this.userId = userId;
 		this.creds = creds;
@@ -40,11 +40,7 @@ public class User {
 	
 	@OneToOne
 	@JoinColumn(name="CREDS_ID")
-<<<<<<< HEAD
-	private Credentials creds;
-=======
 	private Creds creds;
->>>>>>> 48f04d1e76a5f6184c9bb76a03e8e7bb6c05c9d9
 	
 	@Column(name="TIER")
 	@Enumerated(EnumType.STRING)
@@ -58,26 +54,7 @@ public class User {
 	
 	@Column(name="EMAIL")
 	private String email;
-<<<<<<< HEAD
-
-=======
 	
-	
-	//CONSTRUCTORS
-	public User() {
-		super();
-	}
-	
-	public User(int userId, Creds creds, Tier tier, String firstname, String lastname, String email) {
-		super();
-		this.userId = userId;
-		this.creds = creds;
-		this.tier= tier;
-		this.firstname = firstname;
-		this.lastname = lastname;
-		this.email = email;
-	}
->>>>>>> 48f04d1e76a5f6184c9bb76a03e8e7bb6c05c9d9
 	
 	//GETTERS AND SETTERS
 	public int getUserId() {

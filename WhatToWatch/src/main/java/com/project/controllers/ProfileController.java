@@ -8,7 +8,7 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.servlet.ModelAndView;
 
-import com.project.beans.Credentials;
+import com.project.beans.Creds;
 import com.project.service.AdminService;
 import com.project.service.UserService;
 
@@ -23,7 +23,7 @@ public class ProfileController {
 		m.addAttribute("username", username);
 		m.addAttribute("password", password);
 		
-		Credentials creds = new Credentials(username, password);
+		Creds creds = new Creds(username, password);
 		//Can be changed later
 		if(aService.getAdminByCreds(creds) != null ) {
 			return new ModelAndView("profile", m);

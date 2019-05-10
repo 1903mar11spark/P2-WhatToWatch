@@ -10,9 +10,6 @@ import javax.persistence.OneToOne;
 import javax.persistence.SequenceGenerator;
 import javax.persistence.Table;
 
-
-
-
 @Entity
 @Table(name="ADMIN")
 public class Admin {
@@ -21,7 +18,7 @@ public class Admin {
 		super();
 	}
 	
-	public Admin(int admindId, Credentials creds, String firstname, String lastname) {
+	public Admin(int admindId, Creds creds, String firstname, String lastname) {
 		super();
 		this.admindId = admindId;
 		this.creds = creds;
@@ -36,15 +33,10 @@ public class Admin {
 	@Column(name="ADMIN_ID")
 	private int admindId;
 	
-<<<<<<< HEAD
 	@OneToOne
 	@JoinColumn(name="CREDS_ID")
-	private Credentials creds;	
-=======
-	@OneToOne 
-	@JoinColumn(name="CREDS_ID")
 	private Creds creds;	
->>>>>>> 48f04d1e76a5f6184c9bb76a03e8e7bb6c05c9d9
+
 	
 	@Column(name="FIRSTNAME")
 	private String firstname;
@@ -52,21 +44,7 @@ public class Admin {
 	@Column(name="LASTNAME")
 	private String lastname;
 
-<<<<<<< HEAD
-=======
-	//CONSTRUCTORS 
-	public Admin(int admindId, Creds creds, String firstname, String lastname) {
-		super();
-		this.admindId = admindId;
-		this.creds = creds;
-		this.firstname = firstname;
-		this.lastname = lastname;
-	}
-	
-	public Admin() {
-		super();
-	}
->>>>>>> 48f04d1e76a5f6184c9bb76a03e8e7bb6c05c9d9
+
 
 	//GETTERS AND SETTERS
 	public int getAdmindId() {

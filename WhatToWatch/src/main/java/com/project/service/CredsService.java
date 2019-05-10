@@ -2,11 +2,17 @@ package com.project.service;
 
 import org.springframework.stereotype.Service;
 
-import com.project.beans.Credentials;
+import com.project.beans.Creds;
 import com.project.dao.CredsDAO;
 
 @Service
 public class CredsService {
+	
+	/*
+	 * 	public void createCreds(Creds creds);
+	public void updateCreds(Creds creds);
+	public void deleteCreds(Creds creds);
+	 */
 
 	private CredsDAO credsDAO;
 
@@ -14,16 +20,18 @@ public class CredsService {
 		this.credsDAO = credsDAO;
 	}
 
-	public void createCreds(Credentials creds) {
+	public void createCreds(Creds creds) {
 		credsDAO.createCreds(creds);
 	}
 
-	public void updateCreds(Credentials creds) {
-		credsDAO.updatePassword(creds);
+	public void updateCreds(Creds creds) {
+		credsDAO.updateCreds(creds);
+	}
+	
+	public void deleteCreds(Creds creds) {
+		credsDAO.deleteCreds(creds);
 	}
 
-	/*
-	 * public void deleteCreds(Credentials creds) { credsDAO.deleteCreds(creds); }
-	 */
+
 
 }

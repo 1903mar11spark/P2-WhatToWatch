@@ -18,16 +18,18 @@ public class UserService {
 		this.userDAO = userDAO;
 	}
 
-	public void createUser(User User) {
-		userDAO.createUser(User);
+	public void createUser(User user) {
+		userDAO.createUser(user);
 	}
 
-	public void updateUser(User User) {
-		userDAO.updateUser(User);
+	public void updateUser(User user) {
+		userDAO.updateUser(user);
 	}
 
-	/*
-	 * public void deleteUser(User User) { UserDAO.deleteUser(User); }
-	 */
+	
+	 public void deleteUser(User user) {
+		 userDAO.deleteUser(user);
+		 }
+	 
 
 }

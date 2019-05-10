@@ -18,20 +18,6 @@ import com.project.beans.User;
 
 public class CredsDAOImpl implements CredsDAO {
 
-<<<<<<< HEAD
-	SessionFactory sf = ConnectionUtil.getSessionFactory();
-
-	@Override
-	public void createCreds(Credentials creds) {
-		// TODO Auto-generated method stub
-		
-	}
-
-	@Override
-	public void updatePassword(Credentials creds) {
-		// TODO Auto-generated method stub
-		
-=======
 	private SessionFactory sessionFactory;
 
 	//CONSTRUCTOR INJECTION
@@ -40,24 +26,10 @@ public class CredsDAOImpl implements CredsDAO {
 		this.sessionFactory = sessionFactory;
 	}
 	
-	@Override
-	public List<Creds> allCreds() {
-		List<Creds> creds = new ArrayList<>();
-		Session session = sessionFactory.getCurrentSession();
-		creds = session.createQuery("from Creds").getResultList();
-		return creds;
-	}
-
-	@Override
-	public Creds getCredsById(int credsId) {
-		Session session = sessionFactory.getCurrentSession();
-		return session.get(Creds.class, credsId);
-	}
 
 	@Override
 	public void createCreds(Creds creds) {
 		sessionFactory.getCurrentSession().persist(creds);		
->>>>>>> 48f04d1e76a5f6184c9bb76a03e8e7bb6c05c9d9
 	}
 
 	@Override
@@ -65,16 +37,12 @@ public class CredsDAOImpl implements CredsDAO {
 		sessionFactory.getCurrentSession().saveOrUpdate(creds);		
 		
 	}
-<<<<<<< HEAD
-	
-=======
 
 	@Override
 	public void deleteCreds(Creds creds) {
 		sessionFactory.getCurrentSession().delete(creds);		
 		
 	}
->>>>>>> 48f04d1e76a5f6184c9bb76a03e8e7bb6c05c9d9
 }
 	
 	
