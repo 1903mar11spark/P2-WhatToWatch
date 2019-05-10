@@ -13,7 +13,7 @@ import javax.persistence.Table;
 
 @Entity
 @Table(name="CREDS")
-public class Credentials {
+public class Creds {
 	
 	//VARIABLES & COLUMNS
 	@Id
@@ -28,24 +28,26 @@ public class Credentials {
 	@Column(name="PASSWORD")
 	private String password;
 	
-	@Column(name="FAV_CHILDHOOD_PET")
-	private String favoriteChildhoodPet;
-
+	@Column(name="ANSWER")
+	private String answer;
+	
+	@OneToOne 
+	@JoinColumn(name="USER_ID")
 	private User user;
 	
 	//CONSTRUCTORS
-	public Credentials() {
+	public Creds() {
 		super();
 	}
 	
-	public Credentials(User user, String username, String favoriteChildhoodPet) {
+	public Creds(User user, String username, String answer) {
 		super();
 		this.user=user;
 		this.username=username;
-		this.favoriteChildhoodPet=favoriteChildhoodPet;
+		this.answer=answer;
 	}
 	
-	public Credentials(int credsId, User user, String username, String password) {
+	public Creds(int credsId, User user, String username, String password) {
 		super();
 		this.credsId = credsId;
 		this.user=user;
@@ -85,14 +87,23 @@ public class Credentials {
 	public void setUser(User user) {
 		this.user = user;
 	}
-
 	
+	public String getAnswer() {
+		return answer;
+	}
+
+	public void setAnswer(String answer) {
+		this.answer = answer;
+	}
+
 	//TO STRING METHOD
 	@Override
 	public String toString() {
-		return "Credentials [credsId=" + credsId + ", user=" + user + ", username=" + username + ", password="
-				+ password + "]";
+		return "Creds [credsId=" + credsId + ", username=" + username + ", password=" + password + ", answer="
+				+ answer + ", user=" + user + "]";
 	}
+
+	
 
 
 }

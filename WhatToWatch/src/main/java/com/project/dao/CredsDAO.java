@@ -1,13 +1,16 @@
 package com.project.dao;
 
-import com.project.beans.Credentials;
-import com.project.beans.User;
+import java.util.List;
+
+import com.project.beans.Creds;
 
 public interface CredsDAO {
 	
-	public void createCreds(Credentials creds);//password is returned as a string of stars
-	public void updatePassword(Credentials creds); //Creds(User, username, Security Question), only if they forgot their password
-	public String getUsername(User user);
+	public List<Creds> allCreds();
+	public Creds getCredsById(int credsId);
+	public void createCreds(Creds creds);
+	public void updateCreds(Creds creds);
+	public void deleteCreds(Creds creds);
 	
 
 }

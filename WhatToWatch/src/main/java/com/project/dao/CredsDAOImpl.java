@@ -1,48 +1,91 @@
 package com.project.dao;
 
+import java.util.ArrayList;
+import java.util.List;
+
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.hibernate.Transaction;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Repository;
+import org.springframework.transaction.annotation.Transactional;
 
-import com.project.beans.Credentials;
+import com.project.beans.Creds;
 import com.project.beans.User;
-import com.project.util.ConnectionUtil;
+
+@Repository(value="credsDAO")
+@Transactional
 
 public class CredsDAOImpl implements CredsDAO {
 
-	SessionFactory sf = ConnectionUtil.getSessionFactory();
-	
-	//---note---//
-	
-	//should we add in another query to create creds based on 
-	//userID, username, password, and security question/answer? 
+	private SessionFactory sessionFactory;
 
+	//CONSTRUCTOR INJECTION
+	@Autowired 
+	public CredsDAOImpl(SessionFactory sessionFactory) {
+		this.sessionFactory = sessionFactory;
+	}
 	
-	//CREATES NEW CREDENTIALS FOR AN USER
 	@Override
-	public void createCreds(Credentials creds) {
-		Session session = sf.openSession();
-		Transaction tx = session.beginTransaction();
-		session.save(creds);
-		tx.commit();
-		session.close();	
+	public List<Creds> allCreds() {
+		List<Creds> creds = new ArrayList<>();
+		Session session = sessionFactory.getCurrentSession();
+		creds = session.createQuery("from Creds").getResultList();
+		return creds;
 	}
 
-	//UPDATES THE PASSWORD FOR AN USER
 	@Override
-	public void updatePassword(Credentials creds) {
-		Session session = sf.openSession();
-		Transaction tx = session.beginTransaction();
-		session.update(creds);
-		tx.commit();
-		session.close();
+	public Creds getCredsById(int credsId) {
+		Session session = sessionFactory.getCurrentSession();
+		return session.get(Creds.class, credsId);
 	}
 
-	//RETRIEVES THE USERNAME FOR AN USER -- need to do 
 	@Override
-	public String getUsername(User user) {
-		// TODO Auto-generated method stub
-		return null;
+	public void createCreds(Creds creds) {
+		sessionFactory.getCurrentSession().persist(creds);		
 	}
 
+	@Override
+	public void updateCreds(Creds creds) {
+		sessionFactory.getCurrentSession().saveOrUpdate(creds);		
+		
+	}
+
+	@Override
+	public void deleteCreds(Creds creds) {
+		sessionFactory.getCurrentSession().delete(creds);		
+		
+	}
 }
+	
+	
+	
+//	HIBERNATE DAO IMPLS BELOW
+	
+//	//CREATES NEW CREDENTIALS FOR AN USER
+//	@Override
+//	public void createCreds(Credentials creds) {
+//		Session session = sf.openSession();
+//		Transaction tx = session.beginTransaction();
+//		session.save(creds);
+//		tx.commit();
+//		session.close();	
+//	}
+//
+//	//UPDATES THE PASSWORD FOR AN USER
+//	@Override
+//	public void updatePassword(Credentials creds) {
+//		Session session = sf.openSession();
+//		Transaction tx = session.beginTransaction();
+//		session.update(creds);
+//		tx.commit();
+//		session.close();
+//	}
+//
+//	//RETRIEVES THE USERNAME FOR AN USER -- need to do 
+//	@Override
+//	public String getUsername(User user) {
+//		// TODO Auto-generated method stub
+//		return null;
+//	}
+
