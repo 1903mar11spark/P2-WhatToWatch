@@ -31,9 +31,9 @@ public class ORMConfiguration {
     public DataSource dataSource() {
         DriverManagerDataSource dataSource = new DriverManagerDataSource();
         dataSource.setDriverClassName("oracle.jdbc.driver.OracleDriver");
-        dataSource.setUrl(System.getenv("HIB_DB_URL"));
-        dataSource.setUsername(System.getenv("HIB_DB_USERNAME"));
-        dataSource.setPassword(System.getenv("HIB_DB_PASSWORD"));
+        dataSource.setUrl(System.getenv("DB_URL"));
+        dataSource.setUsername(System.getenv("DB_USERNAME"));
+        dataSource.setPassword(System.getenv("DB_PASSWORD"));
  
         return dataSource;
     }

@@ -11,11 +11,6 @@
 		<maven.compiler.source>1.8</maven.compiler.source>
 		<maven.compiler.target>1.8</maven.compiler.target>
 	</properties>
-<<<<<<< HEAD
-  
-=======
-
->>>>>>> 188ce81835753e10362237c3bdf587cf4b0ff363
 	<dependencies>
 		<!-- https://mvnrepository.com/artifact/org.springframework/spring-context -->
 		<dependency>
@@ -66,10 +61,7 @@
 			<version>12.1.0.2</version>
 		</dependency>
 		<!-- https://mvnrepository.com/artifact/org.hibernate/hibernate-core -->
-<<<<<<< HEAD
-<<<<<<< HEAD
-=======
->>>>>>> 188ce81835753e10362237c3bdf587cf4b0ff363
+
 		<dependency>
 			<groupId>org.hibernate</groupId>
 			<artifactId>hibernate-core</artifactId>
@@ -77,12 +69,5 @@
 		</dependency>
 	</dependencies>
 
-<<<<<<< HEAD
 </project>
-=======
-</project>
-  
->>>>>>> 76e1437b3513d086ae424df705c99fadb3cd1ed0
-=======
-</project>
->>>>>>> 188ce81835753e10362237c3bdf587cf4b0ff363
+

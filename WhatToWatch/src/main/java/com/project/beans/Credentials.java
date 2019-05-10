@@ -2,12 +2,9 @@ package com.project.beans;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
-import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
-import javax.persistence.JoinColumn;
-import javax.persistence.OneToOne;
 import javax.persistence.SequenceGenerator;
 import javax.persistence.Table;
 
@@ -15,30 +12,11 @@ import javax.persistence.Table;
 @Table(name="CREDS")
 public class Credentials {
 	
-	//VARIABLES & COLUMNS
-	@Id
-	@GeneratedValue(strategy = GenerationType.AUTO, generator = "credsSequence")
-	@SequenceGenerator(allocationSize=1, name="credsSequence", sequenceName="SQ_CREDS_PK")
-	@Column(name="CREDS_ID")
-	private int credsId;
-	
-	@Column(name="USERNAME")
-	private String username;
-	
-	@Column(name="PASSWORD")
-	private String password;
-	
-	@Column(name="FAV_CHILDHOOD_PET")
-	private String favoriteChildhoodPet;
-
-	private User user;
-	
 	//CONSTRUCTORS
 	public Credentials() {
 		super();
 	}
 
-	
 	public Credentials(int credsId, String username, String password) {
 		super();
 		this.credsId=credsId;
@@ -46,29 +24,26 @@ public class Credentials {
 		this.password=password;
 	}
 	
-	public Credentials( String username, String favoriteChildhoodPet) {
+	public Credentials( String username, String answer) {
 		super();
 		this.username=username;
-		this.favoriteChildhoodPet=favoriteChildhoodPet;
+		this.answer=answer;
 	}
 	
-	public Credentials(int credsId, String username, String password, String favoriteChildhoodPet) {
+	public Credentials(int credsId, String username, String password, String answer) {
 		super();
 		this.credsId = credsId;
 		this.username = username;
 		this.password = password;
-		this.favoriteChildhoodPet = favoriteChildhoodPet;
+		this.answer = answer;
 	}
 
-<<<<<<< HEAD
+	//VARIABLES & COLUMNS
 	@Id// indecates a primary key
 	@GeneratedValue(strategy = GenerationType.AUTO, generator = "credsIdSequence")
 	@SequenceGenerator(allocationSize=1, name="userIdSequence", sequenceName="SQ_CREDS_PK")
 	@Column(name="CREDS_ID")
 	private int credsId;
-	
-	
-
 	
 	@Column(name="USERNAME")
 	private String username;
@@ -77,13 +52,10 @@ public class Credentials {
 	private String password;
 	
 
-	@Column(name="FAV_CHILDHOOD_PET")
-	private String favoriteChildhoodPet;
+	@Column(name="ANSWER")
+	private String answer;
 
-	
-=======
 	//GETTERS AND SETTERS
->>>>>>> 188ce81835753e10362237c3bdf587cf4b0ff363
 	public int getCredsId() {
 		return credsId;
 	}
@@ -108,22 +80,15 @@ public class Credentials {
 		this.password = password;
 	}
 
-<<<<<<< HEAD
 
-=======
-	public User getUser() {
-		return user;
-	}
->>>>>>> 188ce81835753e10362237c3bdf587cf4b0ff363
-
-
-	
-	//TO STRING METHOD
 	@Override
 	public String toString() {
-		return "Credentials [credsId=" + credsId + ", username=" + username + ", password="
-				+ password + "]";
+		return "Credentials [credsId=" + credsId + ", username=" + username + ", password=" + password + ", answer="
+				+ answer + "]";
 	}
+
+
+
 
 
 }

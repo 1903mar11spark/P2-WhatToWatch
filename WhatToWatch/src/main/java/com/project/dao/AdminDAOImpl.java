@@ -63,7 +63,7 @@ public class AdminDAOImpl implements AdminDAO {
 		return tierUsers;
 	}
 
-	@Override
+/*	@Override
 	public boolean deleteUser(Admin admin) {
 		if(admin !=null) {
 		Session session = sf.openSession();
@@ -75,9 +75,9 @@ public class AdminDAOImpl implements AdminDAO {
 		}else {
 			return false;
 		}
-	}
+	}*/
 
-	@Override
+/*	@Override
 	public Admin createAdmin(Admin admin) {
 		if(admin != null) {
 		Session session = sf.openSession();
@@ -88,8 +88,7 @@ public class AdminDAOImpl implements AdminDAO {
 		return admin;
 		}else {
 			return null;
-		}
+		}*/
 	}
 
 	
-}
