@@ -12,9 +12,28 @@ import javax.persistence.SequenceGenerator;
 import javax.persistence.Table;
 
 @Entity
-@Table(name="USER")
+@Table(name="CREDS")
 public class Credentials {
+	
+	//VARIABLES & COLUMNS
+	@Id
+	@GeneratedValue(strategy = GenerationType.AUTO, generator = "credsSequence")
+	@SequenceGenerator(allocationSize=1, name="credsSequence", sequenceName="SQ_CREDS_PK")
+	@Column(name="CREDS_ID")
+	private int credsId;
+	
+	@Column(name="USERNAME")
+	private String username;
+	
+	@Column(name="PASSWORD")
+	private String password;
+	
+	@Column(name="FAV_CHILDHOOD_PET")
+	private String favoriteChildhoodPet;
 
+	private User user;
+	
+	//CONSTRUCTORS
 	public Credentials() {
 		super();
 	}
@@ -34,27 +53,7 @@ public class Credentials {
 		this.password = password;
 	}
 
-	@Id// indecates a primary key
-	@GeneratedValue(strategy = GenerationType.AUTO, generator = "credsIdSequence")
-	@SequenceGenerator(allocationSize=1, name="userIdSequence", sequenceName="SQ_CREDS_PK")
-	@Column(name="CREDS_ID")
-	private int credsId;
-	
-	@OneToOne(fetch=FetchType.EAGER)
-	@JoinColumn(name="CREDS_ID")
-	private User user;
-	
-	@Column(name="USERNAME")
-	private String username;
-	
-	@Column(name="PASSWORD")
-	private String password;
-	
-
-	@Column(name="FAV_CHILDHOOD_PET")
-	private String favoriteChildhoodPet;
-
-	
+	//GETTERS AND SETTERS
 	public int getCredsId() {
 		return credsId;
 	}
@@ -79,7 +78,6 @@ public class Credentials {
 		this.password = password;
 	}
 
-
 	public User getUser() {
 		return user;
 	}
@@ -89,16 +87,12 @@ public class Credentials {
 	}
 
 	
-
+	//TO STRING METHOD
 	@Override
 	public String toString() {
 		return "Credentials [credsId=" + credsId + ", user=" + user + ", username=" + username + ", password="
 				+ password + "]";
 	}
-
-	
-
-
 
 
 }
