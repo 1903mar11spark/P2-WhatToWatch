@@ -1,6 +1,9 @@
-<h1>What to Watch</h1>
-<div id="buttons">
-  <a routerLink="/login" class="button">Login</a>
-  <a routerLink="/admin" class="button">Go to admin</a>
-  <a routerLink="component/createUser" class="button">Create User Account</a>
-</div>
+<h1>Hi {{currentUser.firstName}}!</h1>
+<p>You're logged in with Angular 7!!</p>
+<h3>All registered users:</h3>
+<ul>
+    <li *ngFor="let user of users">
+        {{user.username}} ({{user.firstName}} {{user.lastName}})
+        - <a (click)="deleteUser(user.id)" class="text-danger">Delete</a>
+    </li>
+</ul>

@@ -1,19 +1,22 @@
 import { Component } from '@angular/core';
+import { Router } from '@angular/router';
 
-@Component({
-  selector: 'app-root',
-  templateUrl: './app.component.html',
-  styleUrls: ['./app.component.css']
-})
+import { AuthenticationService } from './_services';
+import { User } from './_models';
 
+@Component({ selector: 'app-root', templateUrl: 'app.component.html' })
 export class AppComponent {
-  records = []
+    currentUser: User;
 
-  constructor() {
-    
-  }
+    constructor(
+        private router: Router,
+        private authenticationService: AuthenticationService
+    ) {
+        this.authenticationService.currentUser.subscribe(x => this.currentUser = x);
+    }
 
-  ngOnInit() {
-    
-  }
+    logout() {
+        this.authenticationService.logout();
+        this.router.navigate(['/login']);
+    }
 }
