@@ -25,8 +25,9 @@ public class User {
 	@Column(name="USER_ID")
 	private int userId;
 	
-	@Column(name="CREDS_ID")
-	private Credentials creds;
+	@OneToOne
+	@JoinColumn(name="CREDS_ID")
+	private Creds creds;
 	
 	@Column(name="TIER")
 	@Enumerated(EnumType.STRING)
@@ -47,7 +48,7 @@ public class User {
 		super();
 	}
 	
-	public User(int userId, Credentials creds, Tier tier, String firstname, String lastname, String email) {
+	public User(int userId, Creds creds, Tier tier, String firstname, String lastname, String email) {
 		super();
 		this.userId = userId;
 		this.creds = creds;
@@ -66,11 +67,11 @@ public class User {
 		this.userId = userId;
 	}
 
-	public Credentials getCreds() {
+	public Creds getCreds() {
 		return creds;
 	}
 
-	public void setCreds(Credentials creds) {
+	public void setCreds(Creds creds) {
 		this.creds = creds;
 	}
 
