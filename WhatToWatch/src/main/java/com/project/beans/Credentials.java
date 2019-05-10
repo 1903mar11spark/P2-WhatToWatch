@@ -12,9 +12,28 @@ import javax.persistence.SequenceGenerator;
 import javax.persistence.Table;
 
 @Entity
-@Table(name="USER")
+@Table(name="CREDS")
 public class Credentials {
+	
+	//VARIABLES & COLUMNS
+	@Id
+	@GeneratedValue(strategy = GenerationType.AUTO, generator = "credsSequence")
+	@SequenceGenerator(allocationSize=1, name="credsSequence", sequenceName="SQ_CREDS_PK")
+	@Column(name="CREDS_ID")
+	private int credsId;
+	
+	@Column(name="USERNAME")
+	private String username;
+	
+	@Column(name="PASSWORD")
+	private String password;
+	
+	@Column(name="FAV_CHILDHOOD_PET")
+	private String favoriteChildhoodPet;
 
+	private User user;
+	
+	//CONSTRUCTORS
 	public Credentials() {
 		super();
 	}
@@ -41,6 +60,7 @@ public class Credentials {
 		this.favoriteChildhoodPet = favoriteChildhoodPet;
 	}
 
+<<<<<<< HEAD
 	@Id// indecates a primary key
 	@GeneratedValue(strategy = GenerationType.AUTO, generator = "credsIdSequence")
 	@SequenceGenerator(allocationSize=1, name="userIdSequence", sequenceName="SQ_CREDS_PK")
@@ -61,6 +81,9 @@ public class Credentials {
 	private String favoriteChildhoodPet;
 
 	
+=======
+	//GETTERS AND SETTERS
+>>>>>>> 188ce81835753e10362237c3bdf587cf4b0ff363
 	public int getCredsId() {
 		return credsId;
 	}
@@ -85,20 +108,22 @@ public class Credentials {
 		this.password = password;
 	}
 
+<<<<<<< HEAD
 
+=======
+	public User getUser() {
+		return user;
+	}
+>>>>>>> 188ce81835753e10362237c3bdf587cf4b0ff363
 
 
 	
-
+	//TO STRING METHOD
 	@Override
 	public String toString() {
 		return "Credentials [credsId=" + credsId + ", username=" + username + ", password="
 				+ password + "]";
 	}
-
-	
-
-
 
 
 }

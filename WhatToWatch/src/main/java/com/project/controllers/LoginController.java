@@ -1,4 +1,4 @@
-package com.project.controlls;
+package com.project.controllers;
 
 
 

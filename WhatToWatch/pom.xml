@@ -2,8 +2,8 @@
 	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
 	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
 	<modelVersion>4.0.0</modelVersion>
-	<groupId>com.revature</groupId>
-	<artifactId>SpringMVCDemo</artifactId>
+	<groupId>com.project</groupId>
+	<artifactId>WhatToWatch</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
 	<packaging>war</packaging>
 
@@ -11,7 +11,11 @@
 		<maven.compiler.source>1.8</maven.compiler.source>
 		<maven.compiler.target>1.8</maven.compiler.target>
 	</properties>
+<<<<<<< HEAD
   
+=======
+
+>>>>>>> 188ce81835753e10362237c3bdf587cf4b0ff363
 	<dependencies>
 		<!-- https://mvnrepository.com/artifact/org.springframework/spring-context -->
 		<dependency>
@@ -63,6 +67,9 @@
 		</dependency>
 		<!-- https://mvnrepository.com/artifact/org.hibernate/hibernate-core -->
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+>>>>>>> 188ce81835753e10362237c3bdf587cf4b0ff363
 		<dependency>
 			<groupId>org.hibernate</groupId>
 			<artifactId>hibernate-core</artifactId>
@@ -70,8 +77,12 @@
 		</dependency>
 	</dependencies>
 
+<<<<<<< HEAD
 </project>
 =======
 </project>
   
 >>>>>>> 76e1437b3513d086ae424df705c99fadb3cd1ed0
+=======
+</project>
+>>>>>>> 188ce81835753e10362237c3bdf587cf4b0ff363

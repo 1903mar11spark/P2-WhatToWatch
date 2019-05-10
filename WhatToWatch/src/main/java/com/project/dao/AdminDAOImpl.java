@@ -14,7 +14,7 @@ import com.project.beans.Admin;
 import com.project.beans.Credentials;
 import com.project.beans.Tier;
 import com.project.beans.User;
-import com.revature.util.ConnectionUtil;
+import com.project.util.ConnectionUtil;
 
 public class AdminDAOImpl implements AdminDAO {
 

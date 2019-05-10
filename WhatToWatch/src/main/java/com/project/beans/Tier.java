@@ -1,10 +1,6 @@
 package com.project.beans;
-//manually set the different tiers in driver class
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.Id;
-import javax.persistence.Table;
 
+<<<<<<< HEAD
 @Entity
 @Table(name="TIER")
 public class Tier {
@@ -53,6 +49,10 @@ public class Tier {
 	
 	
 	
+=======
+public enum Tier {
+>>>>>>> 188ce81835753e10362237c3bdf587cf4b0ff363
 	
+	BASIC, PREMIUM, MODERATOR;
 
 }
