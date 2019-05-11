@@ -1,3 +1,4 @@
+import { LogincheckService } from './login/logincheck.service';
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { RouterModule } from '@angular/router';
@@ -10,6 +11,9 @@ import { AuthService } from './auth.service'
 import { UserService } from './user.service'
 import { AuthGuard } from './auth.guard';
 import { LogoutComponent } from './logout/logout.component';
+import { UserViewComponent } from './user-view/user-view.component';
+import { NavbarComponent } from './navbar/navbar.component';
+
 
 
 @NgModule({
@@ -18,7 +22,9 @@ import { LogoutComponent } from './logout/logout.component';
     LoginComponent,
     AdminComponent,
     HomeComponent,
-    LogoutComponent
+    LogoutComponent,
+    UserViewComponent,
+    NavbarComponent
   ],
   imports: [
     BrowserModule,
@@ -40,10 +46,14 @@ import { LogoutComponent } from './logout/logout.component';
       {
         path: '',
         component: HomeComponent
+      },
+      {
+        path: 'user',
+        component: UserViewComponent
       }
     ])
   ],
-  providers: [AuthService, UserService, AuthGuard],
+  providers: [AuthService, UserService, AuthGuard, LogincheckService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

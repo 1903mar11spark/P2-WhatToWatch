@@ -1,35 +1,37 @@
 import { Component, OnInit } from '@angular/core';
-import { AuthService } from '../auth.service';
+//import { AuthService } from '../auth.service';
 import { Router } from '@angular/router';
+import { LogincheckService } from './logincheck.service';
 
 @Component({
   selector: 'app-login',
   templateUrl: './login.component.html',
   styleUrls: ['./login.component.css']
 })
-export class LoginComponent implements OnInit {
+export class LoginComponent {
 
-  constructor(private Auth: AuthService, 
-              private router: Router) { }
+  username = 'test';
+  password = 'test';
+  public attempt = {};
+  constructor(private router: Router, private login: LogincheckService) { }
 
-  ngOnInit() {
-  }
-
-  loginUser(event) {
-    event.preventDefault()
-    const target = event.target
-    const username = target.querySelector('#username').value
-    const password = target.querySelector('#password').value
-
-    this.Auth.getUserDetails(username, password).subscribe(data => {
-      if(data.success) {
-        this.router.navigate(['admin'])
-        this.Auth.setLoggedIn(true)
-      } else {
-        window.alert(data.message)
-      }
+  tryLogin(){
+    this.login.login(
+      this.username,
+      this.password
+    )
+    .subscribe(
+      data => { 
+        this.attempt = data;
+        console.log(data);
+        if(this.attempt == 'true'){
+          this.router.navigate(['/', 'user']);
+        }
     })
-    console.log(username, password)
+        //this.router.navigate(['/', 'user']);
+      //}
+    //}
+    
   }
-
+ 
 }
