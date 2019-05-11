@@ -6,6 +6,7 @@ import { User } from '../_models';
 
 @Injectable({ providedIn: 'root' })
 export class UserService {
+  logout: any;
     constructor(private http: HttpClient) { }
 
     getAll() {
