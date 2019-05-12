@@ -2,6 +2,7 @@
 //import { AuthService } from '../auth.service';
 import { Router } from '@angular/router';
 import { LogincheckService } from './logincheck.service';
+import { Component } from '@angular/core';
 
 @Component({
   selector: 'app-login',
