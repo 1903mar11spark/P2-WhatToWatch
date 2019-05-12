@@ -20,6 +20,10 @@ public class CredsService {
 	public List<Creds> allCreds(){
 		return credsDAO.allCreds();
 	}
+	public int getUserId (Creds creds) {
+		return credsDAO.getUserId(creds);
+	}
+	
 	public Creds getCredsById(int credsId) {
 		return credsDAO.getCredsById(credsId);
 	}

@@ -2,12 +2,23 @@ package com.project;
 
 import org.hibernate.SessionFactory;
 
+import com.project.dao.UserDAO;
+import com.project.dao.UserDAOImpl;
 import com.project.util.ConnectionUtil;
 
 public class Driver {
+	UserDAO userDAO = new UserDAOImpl(null);
 	
 	public static void main(String[] args) {
 		SessionFactory sf = ConnectionUtil.getSessionFactory();
+		Session s = sf.openSession();
+		Transaction tx = s.beginTransaction();
+		System.out.println(s.getStatistics());
+		tx.commit();
+		s.close();
+		
+		
+
 	}
 	
 	

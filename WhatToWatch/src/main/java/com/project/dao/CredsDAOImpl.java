@@ -39,6 +39,13 @@ public class CredsDAOImpl implements CredsDAO {
 		Session session = sessionFactory.getCurrentSession();
 		return session.get(Creds.class, credsId);
 	}
+	
+	//need to fix - temporary 
+	@Override
+	public int getUserId(Creds creds) {
+		Session session = sessionFactory.getCurrentSession();
+		return 100;
+	}
 
 	@Override
 	public void createCreds(Creds creds) {
