@@ -46,7 +46,7 @@ import { AuthGuard } from './_guards';
     //routing,
     RouterModule.forRoot([
       {
-        path: 'login',
+        path: '',
         component: LoginComponent
       },
       {
@@ -58,10 +58,10 @@ import { AuthGuard } from './_guards';
         //component: AdminComponent,
         //canActivate: [AuthGuard]
       //},
-      {
-        path: '',
-        component: HomeComponent
-      },
+      //{
+        //path: '',
+        //component: HomeComponent
+      //},
       {
         path: 'user',
         component: UserViewComponent
