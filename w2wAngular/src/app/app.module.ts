@@ -1,3 +1,4 @@
+
 import { LogincheckService } from './login/logincheck.service';
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
@@ -14,8 +15,14 @@ import { LogoutComponent } from './logout/logout.component';
 import { UserViewComponent } from './user-view/user-view.component';
 import { WisecrackComponent } from './content/wisecrack/wisecrack.component';
 
+// used to create fake backend
+import { fakeBackendProvider } from './_helpers';
+import { routing }        from './app.routing';
 
 
+import { JwtInterceptor, ErrorInterceptor } from './_helpers';
+import { RegisterComponent } from './register';
+import { AlertComponent } from './alert/alert.component';
 
 @NgModule({
   declarations: [
@@ -25,11 +32,15 @@ import { WisecrackComponent } from './content/wisecrack/wisecrack.component';
     HomeComponent,
     LogoutComponent,
     UserViewComponent,
-    WisecrackComponent
+    WisecrackComponent,
+    RegisterComponent,
+    AlertComponent
+    
   ],
   imports: [
     BrowserModule,
     HttpClientModule,
+    routing,
     RouterModule.forRoot([
       {
         path: 'login',
@@ -58,7 +69,14 @@ import { WisecrackComponent } from './content/wisecrack/wisecrack.component';
       }
     ])
   ],
-  providers: [AuthService, UserService, AuthGuard, LogincheckService],
+  providers: [AuthService, UserService, AuthGuard, LogincheckService,  { provide: HTTP_INTERCEPTORS, useClass: JwtInterceptor, multi: true },
+        { provide: HTTP_INTERCEPTORS, useClass: ErrorInterceptor, multi: true },
+
+        // provider used to create fake backend
+        fakeBackendProvider],
   bootstrap: [AppComponent]
+
+   
 })
+
 export class AppModule { }
