@@ -1,6 +1,16 @@
 package com.project;
 
+import org.hibernate.SessionFactory;
+
+import com.project.util.ConnectionUtil;
+
 public class Driver {
+	
+	public static void main(String[] args) {
+		SessionFactory sf = ConnectionUtil.getSessionFactory();
+	}
+	
+	
 	
 	//create and finalized Tiers and Admin Table
 	/*
