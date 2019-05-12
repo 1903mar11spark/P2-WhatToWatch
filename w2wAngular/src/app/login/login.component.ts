@@ -8,6 +8,7 @@ import { LogincheckService } from './logincheck.service';
   templateUrl: './login.component.html',
   styleUrls: ['./login.component.css']
 })
+//export class LoginComponent implements OnInit {
 export class LoginComponent {
 
   username = 'test';

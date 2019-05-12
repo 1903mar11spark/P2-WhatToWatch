@@ -12,7 +12,8 @@ import { UserService } from './user.service'
 import { AuthGuard } from './auth.guard';
 import { LogoutComponent } from './logout/logout.component';
 import { UserViewComponent } from './user-view/user-view.component';
-import { NavbarComponent } from './navbar/navbar.component';
+import { WisecrackComponent } from './content/wisecrack/wisecrack.component';
+
 
 
 
@@ -24,7 +25,7 @@ import { NavbarComponent } from './navbar/navbar.component';
     HomeComponent,
     LogoutComponent,
     UserViewComponent,
-    NavbarComponent
+    WisecrackComponent
   ],
   imports: [
     BrowserModule,
@@ -50,6 +51,10 @@ import { NavbarComponent } from './navbar/navbar.component';
       {
         path: 'user',
         component: UserViewComponent
+      },
+      {
+      path: 'wisecrack',
+      component: WisecrackComponent
       }
     ])
   ],
