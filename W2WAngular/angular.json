@@ -3,7 +3,7 @@
   "version": 1,
   "newProjectRoot": "projects",
   "projects": {
-    "What": {
+    "w2wAngular": {
       "root": "",
       "sourceRoot": "src",
       "projectType": "application",
@@ -13,7 +13,7 @@
         "build": {
           "builder": "@angular-devkit/build-angular:browser",
           "options": {
-            "outputPath": "dist/What",
+            "outputPath": "dist/w2wAngular",
             "index": "src/index.html",
             "main": "src/main.ts",
             "polyfills": "src/polyfills.ts",
@@ -23,9 +23,14 @@
               "src/assets"
             ],
             "styles": [
-              "src/styles.css"
+              "src/styles.css",
+              "./node_modules/bootstrap/dist/css/bootstrap.min.css"
             ],
-            "scripts": [],
+            "scripts": [
+              "./node_modules/jquery/dist/jquery.slim.min.js",
+              "./node_modules/popper.js/dist/umd/popper.min.js",
+              "./node_modules/bootstrap/dist/js/bootstrap.min.js"
+            ],
             "es5BrowserSupport": true
           },
           "configurations": {
@@ -58,18 +63,18 @@
         "serve": {
           "builder": "@angular-devkit/build-angular:dev-server",
           "options": {
-            "browserTarget": "What:build"
+            "browserTarget": "w2wAngular:build"
           },
           "configurations": {
             "production": {
-              "browserTarget": "What:build:production"
+              "browserTarget": "w2wAngular:build:production"
             }
           }
         },
         "extract-i18n": {
           "builder": "@angular-devkit/build-angular:extract-i18n",
           "options": {
-            "browserTarget": "What:build"
+            "browserTarget": "w2wAngular:build"
           }
         },
         "test": {
@@ -103,7 +108,7 @@
         }
       }
     },
-    "What-e2e": {
+    "w2wAngular-e2e": {
       "root": "e2e/",
       "projectType": "application",
       "prefix": "",
@@ -112,11 +117,11 @@
           "builder": "@angular-devkit/build-angular:protractor",
           "options": {
             "protractorConfig": "e2e/protractor.conf.js",
-            "devServerTarget": "What:serve"
+            "devServerTarget": "w2wAngular:serve"
           },
           "configurations": {
             "production": {
-              "devServerTarget": "What:serve:production"
+              "devServerTarget": "w2wAngular:serve:production"
             }
           }
         },
@@ -132,5 +137,5 @@
       }
     }
   },
-  "defaultProject": "What"
+  "defaultProject": "w2wAngular"
 }
