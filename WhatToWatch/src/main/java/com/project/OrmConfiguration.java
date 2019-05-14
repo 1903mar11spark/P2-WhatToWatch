@@ -14,7 +14,7 @@ import org.springframework.transaction.annotation.EnableTransactionManagement;
 
 @Configuration
 @EnableTransactionManagement
-public class ORMConfiguration {
+public class OrmConfiguration {
 	
 
     @Bean
@@ -33,6 +33,7 @@ public class ORMConfiguration {
         dataSource.setDriverClassName("oracle.jdbc.driver.OracleDriver");
         dataSource.setUrl(System.getenv("HIB_DB_URL"));
         dataSource.setUsername(System.getenv("HIB_DB_USERNAME"));
+        System.out.println(System.getenv("HIB_DB_USERNAME"));
         dataSource.setPassword(System.getenv("HIB_DB_PASSWORD"));
  
         return dataSource;

@@ -19,7 +19,6 @@
 		<property name="hibernate.hbm2ddl.auto">update</property>
 		<mapping class="com.project.beans.Admin"></mapping>
 		<mapping class="com.project.beans.Creds"></mapping>
-		<mapping class="com.project.beans.Tier"></mapping>
 		<mapping class="com.project.beans.User"></mapping>
 	</session-factory>
 </hibernate-configuration> 

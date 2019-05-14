@@ -8,7 +8,7 @@ public interface CredsDAO {
 	
 	public List<Creds> allCreds();
 	public Creds getCredsById(int credsId);
-	public int getUserId(Creds creds);
+//	public int getUserId(String userName, String password);
 	public void createCreds(Creds creds);
 	public void updateCreds(Creds creds);
 	public void deleteCreds(Creds creds);
