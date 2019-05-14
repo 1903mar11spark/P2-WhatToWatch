@@ -1,0 +1,51 @@
+/* h1 {
+    padding: 20px;
+    text-align: center;
+    border-bottom: 1px solid #eee;
+}
+
+#buttons {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 500px;
+}
+
+.button {
+    padding: 20px;
+    color: white;
+    font-size: 30px;
+    border-radius: 10px;
+    background: black;
+    border: 1px solid black;
+    text-decoration: none;
+    margin: 20px;
+}
+
+.button:hover {
+    background: white;
+    color: black;
+} */
+
+
+.nav
+{
+   -webkit-box-shadow: 0px -50px 131px 48px rgba(0,0,0,0.75);
+   -moz-box-shadow: 0px -50px 131px 48px rgba(0,0,0,0.75);
+   box-shadow: 0px -50px 131px 48px rgba(0,0,0,0.75);
+   font-size: 20px;
+   font-weight: 500;       
+}
+
+
+li a:hover
+{
+   border-radius: 30px;
+   -webkit-box-shadow: -7px 0px 10px 0px rgba(245, 179, 179, 0.815), 7px 0px 10px 0px rgba(245, 179, 179, 0.815);
+   -moz-box-shadow: -7px 0px 20px 0px rgba(245, 179, 179, 0.815), 7px 0px 20px 0px rgba(245, 179, 179, 0.815);
+   box-shadow: -7px 0px 10px 0px rgba(245, 179, 179, 0.815), rgba(245, 179, 179, 0.815)rgba(255, 255, 255, 0.664); 
+   background-color: rgb(235, 112, 112);
+   transition-duration: .75s;
+}
+
+

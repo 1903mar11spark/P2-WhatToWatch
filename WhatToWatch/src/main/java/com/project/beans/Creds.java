@@ -11,8 +11,11 @@ import javax.persistence.OneToOne;
 import javax.persistence.SequenceGenerator;
 import javax.persistence.Table;
 
+import org.springframework.stereotype.Component;
+
 @Entity
 @Table(name="CREDS")
+
 public class Creds {
 	
 	//VARIABLES & COLUMNS
@@ -31,9 +34,11 @@ public class Creds {
 	@Column(name="ANSWER")
 	private String answer;
 	
-	@OneToOne 
+	@OneToOne (fetch = FetchType.EAGER)
 	@JoinColumn(name="USER_ID")
 	private User user;
+	
+	//private int userId = user.getUserId();
 	
 	//CONSTRUCTORS
 	public Creds() {
