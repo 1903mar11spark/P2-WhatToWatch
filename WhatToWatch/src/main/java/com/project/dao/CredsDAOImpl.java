@@ -15,7 +15,6 @@ import com.project.beans.User;
 
 @Repository(value="credsDAO")
 @Transactional
-
 public class CredsDAOImpl implements CredsDAO {
 
 	private SessionFactory sessionFactory;
@@ -40,12 +39,17 @@ public class CredsDAOImpl implements CredsDAO {
 		return session.get(Creds.class, credsId);
 	}
 	
-	//need to fix - temporary 
-	@Override
-	public int getUserId(Creds creds) {
-		Session session = sessionFactory.getCurrentSession();
-		return 100;
-	}
+	
+//	@Override
+//	public int getUserId(String userName, String password) {
+//		Creds id = sessionFactory.getCurrentSession().get(Creds.class, userName);
+//		if (id.getPassword().contains(password)) {
+//			int userId = Creds;
+//			return userId;
+//		} else {
+//			return 0;
+//		}
+//	}
 
 	@Override
 	public void createCreds(Creds creds) {

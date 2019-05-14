@@ -14,6 +14,8 @@ import javax.persistence.OneToOne;
 import javax.persistence.SequenceGenerator;
 import javax.persistence.Table;
 
+import org.springframework.stereotype.Component;
+
 
 @Entity
 @Table(name="ADMIN")
@@ -26,7 +28,7 @@ public class Admin {
 	@Column(name="ADMIN_ID")
 	private int admindId;
 	
-	@OneToOne 
+	@OneToOne (fetch = FetchType.EAGER)
 	@JoinColumn(name="CREDS_ID")
 	private Creds creds;	
 	

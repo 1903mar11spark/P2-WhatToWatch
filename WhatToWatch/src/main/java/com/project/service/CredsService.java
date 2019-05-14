@@ -7,12 +7,14 @@ import org.springframework.stereotype.Service;
 import com.project.beans.*;
 import com.project.dao.*;
 
+
 @Service 
 public class CredsService {
-
-	private CredsDAO credsDAO;
 	
 	@Autowired
+	private CredsDAO credsDAO;
+	
+	
 	public CredsService(CredsDAO credsDAO) {
 		this.credsDAO = credsDAO;
 	}
@@ -20,9 +22,9 @@ public class CredsService {
 	public List<Creds> allCreds(){
 		return credsDAO.allCreds();
 	}
-	public int getUserId (Creds creds) {
-		return credsDAO.getUserId(creds);
-	}
+//	public int getUserId (String userName, String password) {
+//		return credsDAO.getUserId(userName, password);
+//	}
 	
 	public Creds getCredsById(int credsId) {
 		return credsDAO.getCredsById(credsId);
