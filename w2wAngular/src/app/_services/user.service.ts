@@ -29,3 +29,4 @@ export class UserService {
         return this.http.delete(`${environment.apiUrl}/users/${id}`);
     }
 }
+
