@@ -38,7 +38,7 @@ public class Creds {
 	@JoinColumn(name="USER_ID")
 	private User user;
 	
-	private int userId = user.getUserId();
+	//private int userId = user.getUserId();
 	
 	//CONSTRUCTORS
 	public Creds() {
