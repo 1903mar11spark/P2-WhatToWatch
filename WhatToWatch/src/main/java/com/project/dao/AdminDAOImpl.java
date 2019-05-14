@@ -7,6 +7,8 @@ import javax.persistence.NamedQuery;
 
 import org.hibernate.query.Query;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Repository;
+import org.springframework.transaction.annotation.Transactional;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.hibernate.Transaction;
@@ -17,6 +19,8 @@ import com.project.beans.Tier;
 import com.project.beans.User;
 import com.project.util.ConnectionUtil;
 
+@Repository(value="adminDAO")
+@Transactional
 public class AdminDAOImpl implements AdminDAO {
 
 	private SessionFactory sessionFactory;

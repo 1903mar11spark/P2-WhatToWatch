@@ -6,6 +6,7 @@ import javax.sql.DataSource;
 
 import org.springframework.jdbc.datasource.DriverManagerDataSource;
 import org.springframework.context.annotation.Bean;
+import org.springframework.context.annotation.ComponentScan;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.orm.hibernate5.HibernateTransactionManager;
 import org.springframework.orm.hibernate5.LocalSessionFactoryBean;
@@ -16,7 +17,6 @@ import org.springframework.transaction.annotation.EnableTransactionManagement;
 @EnableTransactionManagement
 public class OrmConfiguration {
 	
-
     @Bean
     public LocalSessionFactoryBean sessionFactory() {
         LocalSessionFactoryBean sessionFactory = new LocalSessionFactoryBean();
@@ -53,7 +53,10 @@ public class OrmConfiguration {
           "hibernate.hbm2ddl.auto", "update");
         hibernateProperties.setProperty(
           "hibernate.dialect", "org.hibernate.dialect.Oracle12cDialect");
- 
+        hibernateProperties.setProperty(
+                "hibernate.show_sql", "true");
+        hibernateProperties.setProperty(
+                "hibernate.format_sql", "true"); 
         return hibernateProperties;
     }
 

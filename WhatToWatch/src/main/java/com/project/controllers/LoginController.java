@@ -14,6 +14,7 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.servlet.ModelAndView;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
@@ -43,7 +44,7 @@ public class LoginController {
 //	};
 	
 	@CrossOrigin
-	@GetMapping(value="/all")
+	@RequestMapping(value="/all", method = RequestMethod.GET)
 	public ResponseEntity<List<Creds>> getAllCreds() {
 		return new ResponseEntity<>(credsService.allCreds(), HttpStatus.OK);
 	}
