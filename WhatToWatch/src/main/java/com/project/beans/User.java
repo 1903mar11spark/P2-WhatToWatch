@@ -2,6 +2,8 @@ package com.project.beans;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.EnumType;
+import javax.persistence.Enumerated;
 import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
@@ -16,32 +18,19 @@ import javax.persistence.Table;
 @Table(name="USER")
 public class User {
 	
-	public User() {
-		super();
-	}
-	
-	public User(int userId, Credentials creds, Tier tier, String firstname, String lastname, String email) {
-		super();
-		this.userId = userId;
-		this.creds = creds;
-		this.tier=tier;
-		this.firstname = firstname;
-		this.lastname = lastname;
-		this.email = email;
-	}
-	
-	@Id// indecates a primary key
-	@GeneratedValue(strategy = GenerationType.AUTO, generator = "userIdSequence")
-	@SequenceGenerator(allocationSize=1, name="userIdSequence", sequenceName="SQ_USER_PK")
+	//VARIABLES & COLUMNS
+	@Id
+	@GeneratedValue(strategy = GenerationType.AUTO, generator = "userSequence")
+	@SequenceGenerator(allocationSize=1, name="userSequence", sequenceName="SQ_USER_PK")
 	@Column(name="USER_ID")
 	private int userId;
 	
-	@OneToOne(fetch=FetchType.EAGER)
+	@OneToOne
 	@JoinColumn(name="CREDS_ID")
-	private Credentials creds;
+	private Creds creds;
 	
-	@OneToMany(fetch=FetchType.EAGER)
-	@JoinColumn(name="TIER_ID")
+	@Column(name="TIER")
+	@Enumerated(EnumType.STRING)
 	private Tier tier;
 	
 	@Column(name="FIRSTNAME")
@@ -50,10 +39,26 @@ public class User {
 	@Column(name="LASTNAME")
 	private String lastname;
 	
-
 	@Column(name="EMAIL")
 	private String email;
 	
+	
+	//CONSTRUCTORS
+	public User() {
+		super();
+	}
+	
+	public User(int userId, Creds creds, Tier tier, String firstname, String lastname, String email) {
+		super();
+		this.userId = userId;
+		this.creds = creds;
+		this.tier= tier;
+		this.firstname = firstname;
+		this.lastname = lastname;
+		this.email = email;
+	}
+	
+	//GETTERS AND SETTERS
 	public int getUserId() {
 		return userId;
 	}
@@ -62,11 +67,11 @@ public class User {
 		this.userId = userId;
 	}
 
-	public Credentials getCreds() {
+	public Creds getCreds() {
 		return creds;
 	}
 
-	public void setCreds(Credentials creds) {
+	public void setCreds(Creds creds) {
 		this.creds = creds;
 	}
 
@@ -93,14 +98,7 @@ public class User {
 	public void setEmail(String email) {
 		this.email = email;
 	}
-
-	@Override
-	public String toString() {
-		return "User [userId=" + userId + ", creds=" + creds + "Tier=" + tier + 
-				", firstname=" + firstname
-				+ ", lastname=" + lastname + ", email=" + email + "]";
-	}
-
+	
 	public Tier getTier() {
 		return tier;
 	}
@@ -109,9 +107,13 @@ public class User {
 		this.tier = tier;
 	}
 	
-	
-	
-	
-	
+	//TO STRING METHOD
+	@Override
+	public String toString() {
+		return "User [userId=" + userId + ", creds=" + creds + "Tier=" + tier + 
+				", firstname=" + firstname
+				+ ", lastname=" + lastname + ", email=" + email + "]";
+	}
+
 
 }
