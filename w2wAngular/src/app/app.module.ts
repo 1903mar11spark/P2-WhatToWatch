@@ -16,11 +16,11 @@ import { UserViewComponent } from './user-view/user-view.component';
 import { WisecrackComponent } from './content/wisecrack/wisecrack.component';
 
 // used to create fake backend
-import { fakeBackendProvider } from './_helpers';
-import { routing }        from './app.routing';
+// import { fakeBackendProvider } from './_helpers';
+// import { routing }        from './app.routing';
 
 
-import { JwtInterceptor, ErrorInterceptor } from './_helpers';
+// import { JwtInterceptor, ErrorInterceptor } from './_helpers';
 import { RegisterComponent } from './register';
 import { AlertComponent } from './alert/alert.component';
 import { AuthService } from './_services/auth.service';
