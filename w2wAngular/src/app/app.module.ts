@@ -14,6 +14,10 @@ import { HomeComponent } from './home/home.component'
 import { LogoutComponent } from './logout/logout.component';
 import { UserViewComponent } from './user-view/user-view.component';
 import { WisecrackComponent } from './content/wisecrack/wisecrack.component';
+import { FormsModule } from '@angular/forms';
+
+//import { Observable } from 'rxjs';
+//import { map } from 'rxjs/operators';
 
 // used to create fake backend
 // import { fakeBackendProvider } from './_helpers';
@@ -36,6 +40,7 @@ import { BonComponent } from './content/bon/bon.component';
 import { CaseyneistatComponent } from './content/caseyneistat/caseyneistat.component';
 import { SettledComponent } from './content/settled/settled.component';
 
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -55,13 +60,16 @@ import { SettledComponent } from './content/settled/settled.component';
     TedComponent,
     BonComponent,
     CaseyneistatComponent,
-    SettledComponent
+    SettledComponent,
+    
     
   ],
   imports: [
     BrowserModule,
     HttpClientModule,
-    //routing,
+    FormsModule,
+    //Observable,
+    //Map,
     RouterModule.forRoot([
       {
         path: '',

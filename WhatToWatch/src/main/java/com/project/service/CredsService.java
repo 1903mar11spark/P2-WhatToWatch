@@ -21,14 +21,10 @@ public class CredsService {
 	
 	public List<Creds> allCreds(){
 		return credsDAO.allCreds();
-	}
-//	public int getUserId (String userName, String password) {
-//		return credsDAO.getUserId(userName, password);
-//	}
-	
-	public Creds getCredsById(int credsId) {
-		return credsDAO.getCredsById(credsId);
-	}
+	}	
+	//public Creds getCredsByUsername(String password) {
+		//return credsDAO.getCredsById(credsId);
+	//}
 	public void createCreds(Creds creds) {
 		credsDAO.createCreds(creds);
 	}

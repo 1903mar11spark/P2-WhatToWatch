@@ -1,8 +1,9 @@
-//import { Component, OnInit } from '@angular/core';
-//import { AuthService } from '../auth.service';
 import { Router } from '@angular/router';
 import { LogincheckService } from './logincheck.service';
 import { Component } from '@angular/core';
+
+
+
 
 @Component({
   selector: 'app-login',
@@ -26,7 +27,7 @@ export class LoginComponent {
       data => { 
         this.attempt = data;
         console.log(data);
-        if(this.attempt == 'true'){
+        if(this.attempt){
           this.router.navigate(['/', 'user']);
         }
     })

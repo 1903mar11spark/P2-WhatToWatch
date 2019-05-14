@@ -12,15 +12,16 @@
 
   <div class="container">
     <div>
-      <input type="text" autocomplete="off" placeholder="Username" id="username">
+      <input [(ngModel)]="username" type="text" autocomplete="off" placeholder="Username" id="username">
     </div>
     <div>
-      <input type="password" autocomplete="off" placeholder="Password" id="password">
+      <input [(ngModel)]="password" type="password" autocomplete="off" placeholder="Password" id="password">
     </div>
     <div>
       <button type="button" id="submit" (click)="tryLogin()">Search</button>
     </div>
   </div>
+
   
   
 

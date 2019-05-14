@@ -18,6 +18,7 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.servlet.ModelAndView;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
@@ -29,11 +30,24 @@ import com.project.service.CredsService;
 
 @RestController
 public class LoginController {
-	
-	@RequestMapping(value="/login", method = RequestMethod.GET, produces = "application/json")
-	public String foo() {
-        return "hello";
+	//private CredsDAOImpl credsDAOImpl;
+	//@Autowired
+	//public LoginController(CredsDAOImpl credsDAOImpl) {
+	//	this.credsDAOImpl = credsDAOImpl;
+	//}
+	@CrossOrigin(origins = "http://localhost:4200")
+	//@RequestMapping(value="/login", method = RequestMethod.GET, produces = "application/json")
+	@RequestMapping(value="/login", method = RequestMethod.POST)
+	//public void recoverUsername(@RequestParam("username") String username) {
+	public String recoverUsername(@RequestBody Login login) {
+	System.out.println(login);
+	String username = login.getUsername();
+	System.out.println(username);
+	String password = login.getPassword();
+	System.out.println(password);
+	return  "true";
     }
+	
 }
 
 /*@RestController
