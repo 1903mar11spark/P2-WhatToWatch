@@ -26,6 +26,15 @@ import { AlertComponent } from './alert/alert.component';
 import { AuthService } from './_services/auth.service';
 import { UserService } from './_services';
 import { AuthGuard } from './_guards';
+import { EspnComponent } from './content/espn/espn.component';
+import { DobrikComponent } from './content/dobrik/dobrik.component';
+import { LastweekComponent } from './content/lastweek/lastweek.component';
+import { CatsComponent } from './content/cats/cats.component';
+import { ProzdComponent } from './content/prozd/prozd.component';
+import { TedComponent } from './content/ted/ted.component';
+import { BonComponent } from './content/bon/bon.component';
+import { CaseyneistatComponent } from './content/caseyneistat/caseyneistat.component';
+import { SettledComponent } from './content/settled/settled.component';
 
 @NgModule({
   declarations: [
@@ -37,7 +46,16 @@ import { AuthGuard } from './_guards';
     UserViewComponent,
     WisecrackComponent,
     RegisterComponent,
-    AlertComponent
+    AlertComponent,
+    EspnComponent,
+    DobrikComponent,
+    LastweekComponent,
+    CatsComponent,
+    ProzdComponent,
+    TedComponent,
+    BonComponent,
+    CaseyneistatComponent,
+    SettledComponent
     
   ],
   imports: [
@@ -69,6 +87,42 @@ import { AuthGuard } from './_guards';
       {
       path: 'wisecrack',
       component: WisecrackComponent
+      },
+      {
+      path: 'espn',
+      component: EspnComponent
+      },
+      {
+        path: 'dobrik',
+        component: DobrikComponent
+      },
+      {
+        path: 'cats',
+        component: CatsComponent
+      },
+      {
+        path: 'prozd',
+        component: ProzdComponent
+      },
+      {
+        path: 'lastweek',
+        component: LastweekComponent
+      },
+      {
+        path: 'bon',
+        component: BonComponent
+      },
+      {
+        path: 'caseyneistat',
+        component: CaseyneistatComponent
+      },
+      {
+        path: 'settled',
+        component: SettledComponent
+      },
+      {
+        path: 'ted',
+        component: TedComponent
       }
     ])
   ],
