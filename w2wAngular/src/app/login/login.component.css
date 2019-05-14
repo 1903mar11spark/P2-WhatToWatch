@@ -1,7 +1,7 @@
 h1
 {
    width: auto;
-   filter: brightness(0.8);
+   filter: brightness(0.9);
    text-align: center;
 }
 
@@ -35,7 +35,7 @@ form {
     -moz-box-shadow: 0px 0px 84px 13px rgba(0,0,0,0.55);
     box-shadow: 0px 0px 84px 13px rgba(0, 0, 0, 0.55);
     display: flexbox;
-    width: 50%;
+    width: 35%;
     margin: 0 auto;
     text-align: center;
     flex-direction: column;
@@ -48,15 +48,15 @@ form {
 }
 
 input#username, input#password {
-    -webkit-box-shadow: inset 0px 0px 64px 6px rgba(177, 97, 97, 0.712);
-    -moz-box-shadow: inset 0px 0px 64px 6px rgba(177, 97, 97, 0.712);
-    box-shadow: inset 0px 0px 64px 6px rgba(177, 97, 97, 0.712);
-    border-radius: 5px;
-    border-width: 1.5px;
+    -webkit-box-shadow: inset 0px 0px 39px 48px rgb(0, 0, 0);
+    -moz-box-shadow: inset 0px 0px 39px 48px rgb(0, 0, 0);
+    box-shadow: inset 0px 0px 39px 48px rgba(255, 84, 84, 0.568);
+    border-radius: 10px;
+    border-width: 1px;
     display: inline-block;
     text-align: center;
-    width: 375px;
-    height: 45px;
+    width: 300px;
+    height: 35px;
     line-height: 50px;
     font-size: 16px;
     color: rgb(0, 0, 0);
@@ -69,19 +69,20 @@ button#submit {
     -webkit-box-shadow: 0px 0px 273px 38px rgba(0,0,0,1);
     -moz-box-shadow: 0px 0px 273px 38px rgba(0,0,0,1);
     box-shadow: 0px 0px 273px 38px rgba(0,0,0,1);
-    width: 90px;
-    height: 35px;
-    border-radius: 5px;
-    border-width: 1.5px;
-    background-color: rgba(184, 84, 84, 0.623);
+    width: 15%;
+    height: 22.5px;
+    border-radius: 7.5px;
+    border-width: 1px;
+    background-color: rgba(185, 82, 82, 0.685);
     border-color:  rgba(0, 0, 0, 0.493);
     -webkit-transition-duration: 1.25s;
     transition-duration: 0.4s;
     color: rgba(219, 219, 219, 0.877);
     padding: 3px 10px;
     text-align: center;
+    line-height: 0px;
     display: inline-block;
-    font-size: 16px;
+    font-size: 14px;
 }
 
 button#submit:hover
