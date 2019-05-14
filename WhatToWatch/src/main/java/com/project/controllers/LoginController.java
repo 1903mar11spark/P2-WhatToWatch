@@ -24,17 +24,27 @@ import com.project.beans.Creds;
 import com.project.dao.*;
 import com.project.service.CredsService;
 
-@RestController
-@RequestMapping(value="/login")
-public class LoginController {
+import com.project.beans.Creds;
+import com.project.dao.*;
+import com.project.service.CredsService;
 
-	private CredsService credsService;
+@RestController
+//@Transactional
+@RequestMapping(value="/login", method = RequestMethod.GET, produces = "application/json")
+public class LoginController {
 	
-	@Autowired
-	public LoginController(CredsService credsService) {
-		this.credsService = credsService;
-		System.out.println("frickin print plz");
-	}
+	@RequestMapping(value="/login", method = RequestMethod.GET, produces = "application/json")
+	public String foo() {
+		System.out.println("3AM");
+        return "hello";
+    }
+}
+	
+//	@RequestMapping(value="/login", method = RequestMethod.GET, produces = "application/json")
+//	public LoginController(CredsService credsService) {
+//		this.credsService = credsService;
+//		System.out.println("print plz");
+//	}
 	
 //	@CrossOrigin
 //	@GetMapping(value="/{userName}/{password}")
@@ -43,11 +53,13 @@ public class LoginController {
 //		return new ResponseEntity<>(userId, HttpStatus.OK);
 //	};
 	
-	@CrossOrigin
-	@RequestMapping(value="/all", method = RequestMethod.GET)
-	public ResponseEntity<List<Creds>> getAllCreds() {
-		return new ResponseEntity<>(credsService.allCreds(), HttpStatus.OK);
-	}
+//	@CrossOrigin
+//	@RequestMapping(value="/all", method = RequestMethod.GET)
+//	public ResponseEntity<List<Creds>> getAllCreds() {
+//		return new ResponseEntity<>(credsService.allCreds(), HttpStatus.OK);
+//	}
+//}
+
 	
 //	@RequestMapping("/login")
 //	public Creds creds()	{
@@ -66,4 +78,4 @@ public class LoginController {
 //	
 	
 	
-}
+
