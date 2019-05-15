@@ -1,15 +1,12 @@
 package com.project.dao;
 
 import java.util.ArrayList;
-
 import java.util.List;
 
 import javax.persistence.NamedQuery;
 
 import org.hibernate.query.Query;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.stereotype.Repository;
-import org.springframework.transaction.annotation.Transactional;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.hibernate.Transaction;
@@ -18,56 +15,57 @@ import com.project.beans.Admin;
 import com.project.beans.Creds;
 import com.project.beans.Tier;
 import com.project.beans.User;
-import com.project.util.ConnectionUtil;
-
-@Repository(value="adminDAO")
-@Transactional
 
 public class AdminDAOImpl implements AdminDAO {
 
 	private SessionFactory sessionFactory;
 
-	//CONSTRUCTOR INJECTION
-	@Autowired 
+	// CONSTRUCTOR INJECTION
+	@Autowired
 	public AdminDAOImpl(SessionFactory sessionFactory) {
 		this.sessionFactory = sessionFactory;
 	}
-		
+	
 	@Override
 	public List<Admin> allAdmins() {
 		List<Admin> admins = new ArrayList<>();
 		Session session = sessionFactory.getCurrentSession();
 		admins = session.createQuery("from Admin").getResultList();
 		return admins;
-	}
+}
 
-	@Override
-	public Admin getAdminById(int adminId) {
-		Session session = sessionFactory.getCurrentSession();
-		return session.get(Admin.class, adminId);
-	}
-
-	@Override
 	public void createAdmin(Admin admin) {
-		sessionFactory.getCurrentSession().persist(admin);		
+		sessionFactory.getCurrentSession().persist(admin);
 	}
 
 	@Override
 	public void updateAdmin(Admin admin) {
-		sessionFactory.getCurrentSession().saveOrUpdate(admin);				
+		sessionFactory.getCurrentSession().saveOrUpdate(admin);
 	}
 
 	@Override
 	public void deleteAdmin(Admin admin) {
-		sessionFactory.getCurrentSession().delete(admin);						
+		sessionFactory.getCurrentSession().delete(admin);
 	}
 	
-	
-	
-	
-	
+
+	@Override
+	public Admin getAdminByCreds(Creds creds) {
+		Session session = sessionFactory.getCurrentSession();
+		return session.get(Admin.class, creds.getCredsId());
+	}
+
+	@Override
+	public List<User> getAllUser() {
+		List<User> users = new ArrayList<>();
+		Session session = sessionFactory.getCurrentSession();
+		users = session.createQuery("from User").getResultList();
+		return null;
+	}
+
+
 }
-	
+
 //	//RETRIEVES ADMIN BY ADMIN CREDENTIALS
 //	@Override
 //	public Admin getAdminByCreds(Credentials creds) {

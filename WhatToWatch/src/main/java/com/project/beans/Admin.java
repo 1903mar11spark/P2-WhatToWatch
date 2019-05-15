@@ -1,44 +1,23 @@
 package com.project.beans;
 
 import javax.persistence.Column;
-
 import javax.persistence.Entity;
-import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
-import javax.persistence.NamedQueries;
-import javax.persistence.NamedQuery;
 import javax.persistence.OneToOne;
 import javax.persistence.SequenceGenerator;
 import javax.persistence.Table;
-
-import org.springframework.stereotype.Component;
-
 
 @Entity
 @Table(name="ADMIN")
 public class Admin {
 	
-	//VARIABLES & COLUMNS
-	@Id
-	@GeneratedValue(strategy=GenerationType.AUTO, generator="adminSequence")
-	@SequenceGenerator(allocationSize=1, name="adminSequence", sequenceName="SQ_ADMIN_PK")
-	@Column(name="ADMIN_ID")
-	private int admindId;
+	public Admin() {
+		super();
+	}
 	
-	@OneToOne (fetch = FetchType.EAGER)
-	@JoinColumn(name="CREDS_ID")
-	private Creds creds;	
-	
-	@Column(name="FIRSTNAME")
-	private String firstname;
-	
-	@Column(name="LASTNAME")
-	private String lastname;
-
-	//CONSTRUCTORS 
 	public Admin(int admindId, Creds creds, String firstname, String lastname) {
 		super();
 		this.admindId = admindId;
@@ -46,10 +25,26 @@ public class Admin {
 		this.firstname = firstname;
 		this.lastname = lastname;
 	}
+
+	//VARIABLES & COLUMNS
+	@Id
+	@GeneratedValue(strategy=GenerationType.AUTO, generator="aSequence")
+	@SequenceGenerator(allocationSize=1, name="aSequence", sequenceName="SQ_ADMIN_PK")
+	@Column(name="ADMIN_ID")
+	private int admindId;
 	
-	public Admin() {
-		super();
-	}
+	@OneToOne
+	@JoinColumn(name="CREDS_ID")
+	private Creds creds;	
+
+	
+	@Column(name="FIRSTNAME")
+	private String firstname;
+	
+	@Column(name="LASTNAME")
+	private String lastname;
+
+
 
 	//GETTERS AND SETTERS
 	public int getAdmindId() {

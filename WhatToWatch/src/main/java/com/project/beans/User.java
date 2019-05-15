@@ -4,21 +4,32 @@ import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.EnumType;
 import javax.persistence.Enumerated;
-import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
-import javax.persistence.OneToMany;
 import javax.persistence.OneToOne;
 import javax.persistence.SequenceGenerator;
 import javax.persistence.Table;
 
-import org.springframework.stereotype.Component;
-
 @Entity
-@Table(name="USER")
+@Table(name="USERS")
 public class User {
+	
+	//CONSTRUCTORS	
+	public User() {
+		super();
+	}
+	
+	public User(int userId, Creds creds, Tier tier, String firstname, String lastname, String email) {
+		super();
+		this.userId = userId;
+		this.creds = creds;
+		this.tier=tier;
+		this.firstname = firstname;
+		this.lastname = lastname;
+		this.email = email;
+	}
 	
 	//VARIABLES & COLUMNS
 	@Id
@@ -27,7 +38,7 @@ public class User {
 	@Column(name="USER_ID")
 	private int userId;
 	
-	@OneToOne (fetch = FetchType.EAGER)
+	@OneToOne
 	@JoinColumn(name="CREDS_ID")
 	private Creds creds;
 	
@@ -44,21 +55,6 @@ public class User {
 	@Column(name="EMAIL")
 	private String email;
 	
-	
-	//CONSTRUCTORS
-	public User() {
-		super();
-	}
-	
-	public User(int userId, Creds creds, Tier tier, String firstname, String lastname, String email) {
-		super();
-		this.userId = userId;
-		this.creds = creds;
-		this.tier= tier;
-		this.firstname = firstname;
-		this.lastname = lastname;
-		this.email = email;
-	}
 	
 	//GETTERS AND SETTERS
 	public int getUserId() {

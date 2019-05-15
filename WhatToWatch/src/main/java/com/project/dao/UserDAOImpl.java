@@ -5,57 +5,56 @@ import java.util.List;
 
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
-import org.hibernate.Transaction;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 import org.springframework.transaction.annotation.Transactional;
 
-import com.project.beans.Creds;
 import com.project.beans.User;
-import com.project.util.ConnectionUtil;
 
 
 @Repository(value="userDAO")
 @Transactional
-
 public class UserDAOImpl implements UserDAO {
 
-	private SessionFactory sessionFactory;
-	
-	//CONSTRUCTOR INJECTION
-	@Autowired 
-	public UserDAOImpl(SessionFactory sessionFactory) {
-		this.sessionFactory = sessionFactory;
+	private SessionFactory sf;
+
+	// CONSTRUCTOR INJECTION
+	@Autowired
+	public UserDAOImpl(SessionFactory sf) {
+		this.sf = sf;
 	}
+
+	
+
 	
 	
 	@Override
-	public List<User> allUsers() {
+	public List<User> getAllUsers() {
 		List<User> users = new ArrayList<>();
-		Session session = sessionFactory.getCurrentSession();
+		Session session = sf.getCurrentSession();
 		users = session.createQuery("from User").getResultList();
 		return users;
 	}
 
 	@Override
 	public User getUserById(int userId) {
-		Session session = sessionFactory.getCurrentSession();
+		Session session = sf.getCurrentSession();
 		return session.get(User.class, userId);
 	}
 
 	@Override
 	public void createUser(User user) {
-		sessionFactory.getCurrentSession().persist(user);
+		sf.getCurrentSession().persist(user);
 	}
 
 	@Override
 	public void updateUser(User user) {
-		sessionFactory.getCurrentSession().saveOrUpdate(user);
+		sf.getCurrentSession().saveOrUpdate(user);
 	}
 
 	@Override
 	public void deleteUser(User user) {
-		sessionFactory.getCurrentSession().delete(user);
+		sf.getCurrentSession().delete(user);
 	}
 	
 }

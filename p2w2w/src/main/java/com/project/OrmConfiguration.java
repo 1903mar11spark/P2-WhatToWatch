@@ -1,12 +1,12 @@
-package com.project;
+/*package com.project;
 
 import java.util.Properties;
 
 import javax.sql.DataSource;
 
-import org.springframework.jdbc.datasource.DriverManagerDataSource;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
+import org.springframework.jdbc.datasource.DriverManagerDataSource;
 import org.springframework.orm.hibernate5.HibernateTransactionManager;
 import org.springframework.orm.hibernate5.LocalSessionFactoryBean;
 import org.springframework.transaction.PlatformTransactionManager;
@@ -15,9 +15,7 @@ import org.springframework.transaction.annotation.EnableTransactionManagement;
 @Configuration
 @EnableTransactionManagement
 public class OrmConfiguration {
-	
-
-    @Bean
+	@Bean
     public LocalSessionFactoryBean sessionFactory() {
         LocalSessionFactoryBean sessionFactory = new LocalSessionFactoryBean();
         sessionFactory.setDataSource(dataSource());
@@ -31,10 +29,9 @@ public class OrmConfiguration {
     public DataSource dataSource() {
         DriverManagerDataSource dataSource = new DriverManagerDataSource();
         dataSource.setDriverClassName("oracle.jdbc.driver.OracleDriver");
-        dataSource.setUrl(System.getenv("HIB_DB_URL"));
-        dataSource.setUsername(System.getenv("HIB_DB_USERNAME"));
-        System.out.println(System.getenv("HIB_DB_USERNAME"));
-        dataSource.setPassword(System.getenv("HIB_DB_PASSWORD"));
+        dataSource.setUrl(System.getenv("P2_URL"));
+        dataSource.setUsername(System.getenv("P2_USERNAME"));
+        dataSource.setPassword(System.getenv("P2_PASS"));
  
         return dataSource;
     }
@@ -48,16 +45,12 @@ public class OrmConfiguration {
     }
  
     private final Properties hibernateProperties() {
-    	Properties hibernateProperties = new Properties();
+        Properties hibernateProperties = new Properties();
         hibernateProperties.setProperty(
-          "hibernate.hbm2ddl.auto", "create");
+          "hibernate.hbm2ddl.auto", "update");
         hibernateProperties.setProperty(
           "hibernate.dialect", "org.hibernate.dialect.Oracle12cDialect");
-        hibernateProperties.setProperty(
-                "hibernate.show_sql", "true");
-        hibernateProperties.setProperty(
-                "hibernate.format_sql", "true"); 
+ 
         return hibernateProperties;
     }
-
-}
+}*/

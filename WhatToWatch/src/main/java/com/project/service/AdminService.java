@@ -3,27 +3,32 @@ package com.project.service;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.stereotype.Service;
 
-import com.project.dao.*;
-import com.project.beans.*;
+import com.project.beans.Admin;
+import com.project.beans.Creds;
+import com.project.beans.User;
+import com.project.dao.AdminDAO;
 
-@Service
 public class AdminService {
-
+	
 	private AdminDAO adminDAO;
 	
 	@Autowired
 	public AdminService(AdminDAO adminDAO) {
-		this.adminDAO = adminDAO;
+		this.adminDAO=adminDAO;
 	}
 	
 	public List<Admin> allAdmins(){
 		return adminDAO.allAdmins();
 	}
 	
-	public Admin getAdminById(int adminId) {
-		return adminDAO.getAdminById(adminId);
+	 public List<User> getAllUsers() { 
+		 return adminDAO.getAllUser();
+		 }
+
+	
+	public Admin getAdminByCreds(Creds creds) {
+		return adminDAO.getAdminByCreds(creds);
 	}
 	
 	public void createAdmin(Admin admin) {
@@ -35,7 +40,11 @@ public class AdminService {
 	}
 	
 	public void deleteAdmin(Admin admin) {
-		adminDAO.deleteAdmin(admin);
+		adminDAO.updateAdmin(admin);
 	}
+
+	
+	
+	
 
 }

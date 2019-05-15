@@ -11,13 +11,17 @@
 		base-package="com.project"></context:component-scan>
 	<!-- enable MVC annotations -->
 	<mvc:annotation-driven></mvc:annotation-driven>
+	<bean id="viewResolver" class="org.springframework.web.servlet.view.InternalResourceViewResolver">  
+	  <property name="prefix" value="/WEB-INF/jsp/"></property>  
+        <property name="suffix" value=".jsp"></property>          
+     </bean>  
+</beans>
 
-	<!-- enable mapping of static resources -->
+<!-- 
 	<mvc:resources location="/WEB-INF/static/"
 		mapping="/static/**"></mvc:resources>
 
-	<!-- set up ViewResolver for JSPs (and other templating engines, like Thymeleaf 
-		and Freemarker) -->
+
 	<bean name="viewResolver"
 		class="org.springframework.web.servlet.view.InternalResourceViewResolver">
 		<property name="prefix">
@@ -28,3 +32,4 @@
 		</property>
 	</bean>
 </beans>
+-->
