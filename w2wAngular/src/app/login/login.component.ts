@@ -13,8 +13,8 @@ import { Component } from '@angular/core';
 //export class LoginComponent implements OnInit {
 export class LoginComponent {
 
-  username = 'test';
-  password = 'test';
+  username = '';
+  password = '';
   public attempt = {};
   constructor(private router: Router, private login: LogincheckService) { }
 
