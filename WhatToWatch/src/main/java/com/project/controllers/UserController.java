@@ -16,7 +16,6 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
 
 import com.project.beans.User;
-import com.project.beans.Users;
 import com.project.service.AdminService;
 import com.project.service.CredsService;
 import com.project.service.UserService;
