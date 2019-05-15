@@ -10,20 +10,26 @@ import org.springframework.stereotype.Repository;
 import org.springframework.transaction.annotation.Transactional;
 
 import com.project.beans.User;
-import com.revature.util.ConnectionUtil;
 
 
 @Repository(value="userDAO")
 @Transactional
 public class UserDAOImpl implements UserDAO {
 
-	private SessionFactory sf = ConnectionUtil.getSessionFactory();
+	private SessionFactory sf;
+
+	// CONSTRUCTOR INJECTION
+	@Autowired
+	public UserDAOImpl(SessionFactory sf) {
+		this.sf = sf;
+	}
+
 	
 
 	
 	
 	@Override
-	public List<User> allUsers() {
+	public List<User> getAllUsers() {
 		List<User> users = new ArrayList<>();
 		Session session = sf.getCurrentSession();
 		users = session.createQuery("from User").getResultList();
@@ -43,12 +49,12 @@ public class UserDAOImpl implements UserDAO {
 
 	@Override
 	public void updateUser(User user) {
-		sessionFactory.getCurrentSession().saveOrUpdate(user);
+		sf.getCurrentSession().saveOrUpdate(user);
 	}
 
 	@Override
 	public void deleteUser(User user) {
-		sessionFactory.getCurrentSession().delete(user);
+		sf.getCurrentSession().delete(user);
 	}
 	
 }

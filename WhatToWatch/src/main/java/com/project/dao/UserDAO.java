@@ -6,7 +6,7 @@ import com.project.beans.User;
 
 public interface UserDAO {
 	
-	public List<User> allUsers();
+	public List<User> getAllUsers();
 	public User getUserById(int userId);
 	public void createUser(User user);
 	public void updateUser(User user);

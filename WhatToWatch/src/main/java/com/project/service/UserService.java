@@ -1,5 +1,7 @@
 package com.project.service;
 
+import java.util.List;
+
 //import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -31,5 +33,8 @@ public class UserService {
 		 userDAO.deleteUser(user);
 		 }
 	 
+	 public List<User> getAllUser(){
+		 return userDAO.getAllUsers();
+	 }
 
 }
