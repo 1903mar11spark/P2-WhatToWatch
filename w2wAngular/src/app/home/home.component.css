@@ -1,4 +1,4 @@
-/* h1 {
+h1 {
     padding: 20px;
     text-align: center;
     border-bottom: 1px solid #eee;
@@ -25,4 +25,4 @@
 .button:hover {
     background: white;
     color: black;
-} */
+}
