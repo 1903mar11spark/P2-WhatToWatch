@@ -28,8 +28,8 @@ public class Admin {
 
 	//VARIABLES & COLUMNS
 	@Id
-	@GeneratedValue(strategy=GenerationType.AUTO, generator="adminSequence")
-	@SequenceGenerator(allocationSize=1, name="adminSequence", sequenceName="SQ_ADMIN_PK")
+	@GeneratedValue(strategy=GenerationType.AUTO, generator="aSequence")
+	@SequenceGenerator(allocationSize=1, name="aSequence", sequenceName="SQ_ADMIN_PK")
 	@Column(name="ADMIN_ID")
 	private int admindId;
 	

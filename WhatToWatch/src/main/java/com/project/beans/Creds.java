@@ -5,6 +5,8 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.OneToOne;
 import javax.persistence.SequenceGenerator;
 import javax.persistence.Table;
 
@@ -17,19 +19,29 @@ public class Creds {
 		super();
 	}
 	
-	public Creds( String username, String answer) {
+	//for when forgetting password
+	public Creds( String username,String question, String answer) {
 		super();
 		this.username=username;
+		this.question=question;
 		this.answer=answer;
 	}
+	
+	public Creds(String username, String password) {
+		super();
+		this.username=username;
+		this.password=password;
+	}
 
-	public Creds(int credsId, String username, String password, String answer) {
+	public Creds(int credsId, User user, String username, String password,String Question, String answer) {
 		super();
 		this.credsId=credsId;
+		this.user=user;
 		this.username=username;
 		this.password=password;
 		this.answer=answer;
 	}
+
 
 	//VARIABLES & COLUMNS
 	@Id
@@ -38,11 +50,18 @@ public class Creds {
 	@Column(name="CREDS_ID")
 	private int credsId;
 	
+	@OneToOne
+	@JoinColumn(name="USER_ID")
+	private User user;
+	
 	@Column(name="USERNAME")
 	private String username;
 	
 	@Column(name="PASSWORD")
 	private String password;
+	
+	@Column(name="QUESTION")
+	private String question;
 	
 	@Column(name="ANSWER")
 	private String answer;
@@ -73,6 +92,13 @@ public class Creds {
 		this.password = password;
 	}
 	
+	public String getQuestion() {
+		return question;
+	}
+	
+	public void setQuestion(String question) {
+		this.question=question;
+	}
 	public String getAnswer() {
 		return answer;
 	}
@@ -85,9 +111,12 @@ public class Creds {
 	//TO STRING METHOD
 	@Override
 	public String toString() {
-		return "Creds [credsId=" + credsId + ", username=" + username + ", password=" + password + ", answer="
+		return "Creds [credsId=" + credsId + ", user " + user + ", username=" + username + ", password=" + password + ", question " + question +
+				", answer="
 				+ answer + "]";
 	}
+
+
 
 	
 

@@ -1,63 +1,53 @@
 package com.project.dao;
 
-import java.util.ArrayList;
-import java.util.List;
-
-import org.hibernate.Session;
 import org.hibernate.SessionFactory;
-import org.hibernate.Transaction;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 import org.springframework.transaction.annotation.Transactional;
 
 import com.project.beans.Creds;
-import com.project.beans.User;
 
-@Repository(value="credsDAO")
+@Repository(value = "credsDAO")
 @Transactional
-
 public class CredsDAOImpl implements CredsDAO {
 
 	private SessionFactory sessionFactory;
 
-	//CONSTRUCTOR INJECTION
-	@Autowired 
+	// CONSTRUCTOR INJECTION
+	@Autowired
 	public CredsDAOImpl(SessionFactory sessionFactory) {
 		this.sessionFactory = sessionFactory;
 	}
-	
 
 	@Override
 	public void createCreds(Creds creds) {
-		sessionFactory.getCurrentSession().persist(creds);		
+		sessionFactory.getCurrentSession().persist(creds);
 	}
 
 	@Override
 	public void updateCreds(Creds creds) {
-		sessionFactory.getCurrentSession().saveOrUpdate(creds);		
-		
+		sessionFactory.getCurrentSession().saveOrUpdate(creds);
+
 	}
 
 	@Override
 	public void deleteCreds(Creds creds) {
-		sessionFactory.getCurrentSession().delete(creds);		
-		
+		sessionFactory.getCurrentSession().delete(creds);
 	}
 }
-	
-	
-	
+
 //	HIBERNATE DAO IMPLS BELOW
-	
+
 //	//CREATES NEW CREDENTIALS FOR AN USER
 //	@Override
-//	public void createCreds(Credentials creds) {
-//		Session session = sf.openSession();
+//	public void createCreds(Creds creds) {
+//		Session session = sessionFactory.openSession();
 //		Transaction tx = session.beginTransaction();
 //		session.save(creds);
 //		tx.commit();
 //		session.close();	
 //	}
+//}
 //
 //	//UPDATES THE PASSWORD FOR AN USER
 //	@Override
@@ -75,4 +65,3 @@ public class CredsDAOImpl implements CredsDAO {
 //		// TODO Auto-generated method stub
 //		return null;
 //	}
-

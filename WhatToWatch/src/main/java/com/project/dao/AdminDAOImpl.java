@@ -15,7 +15,6 @@ import com.project.beans.Admin;
 import com.project.beans.Creds;
 import com.project.beans.Tier;
 import com.project.beans.User;
-import com.project.util.ConnectionUtil;
 
 public class AdminDAOImpl implements AdminDAO {
 

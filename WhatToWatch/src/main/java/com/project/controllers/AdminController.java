@@ -17,6 +17,7 @@ import com.project.beans.Tier;
 import com.project.beans.User;
 import com.project.service.AdminService;
 
+@RequestMapping(value="/admin")
 public class AdminController {
 	
 	private AdminService aService;

@@ -46,25 +46,25 @@ public class UserController {
 	}
 	
 	@PutMapping
-	public ResponseEntity<String> updateFlashcard(@RequestBody User user){
+	public ResponseEntity<String> updateUser(@RequestBody User user){
 		ResponseEntity<String> resp = null;
 		try {
 			uService.updateUser(user);
-			resp = new ResponseEntity<>("FLASHCARD UPDATED SUCCESSFULLY", HttpStatus.OK);
+			resp = new ResponseEntity<>("USER UPDATED SUCCESSFULLY", HttpStatus.OK);
 		} catch (Exception e) {
-			resp = new ResponseEntity<>("FAILED TO UPDATE FLASHCARD", HttpStatus.BAD_REQUEST);
+			resp = new ResponseEntity<>("FAILED TO UPDATE USER", HttpStatus.BAD_REQUEST);
 		}
 		return resp;
 	}
 	
 	@DeleteMapping
-	public ResponseEntity<String> deleteFlashcard(@RequestBody User user){
+	public ResponseEntity<String> deleteUser(@RequestBody User user){
 		ResponseEntity<String> resp = null;
 		try {
 			uService.deleteUser(user);
-			resp = new ResponseEntity<>("FLASHCARD DELETED SUCCESSFULLY", HttpStatus.OK);
+			resp = new ResponseEntity<>("USER DELETED SUCCESSFULLY", HttpStatus.OK);
 		} catch (Exception e) {
-			resp = new ResponseEntity<>("FAILED TO DELETE FLASHCARD", HttpStatus.BAD_REQUEST);
+			resp = new ResponseEntity<>("FAILED TO DELETE USER", HttpStatus.BAD_REQUEST);
 		}
 		return resp;
 	}

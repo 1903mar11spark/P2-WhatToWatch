@@ -5,47 +5,40 @@ import java.util.List;
 
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
-import org.hibernate.Transaction;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 import org.springframework.transaction.annotation.Transactional;
 
-import com.project.beans.Creds;
 import com.project.beans.User;
-import com.project.util.ConnectionUtil;
+import com.revature.util.ConnectionUtil;
 
 
 @Repository(value="userDAO")
 @Transactional
-
 public class UserDAOImpl implements UserDAO {
 
-	private SessionFactory sessionFactory;
+	private SessionFactory sf = ConnectionUtil.getSessionFactory();
 	
-	//CONSTRUCTOR INJECTION
-	@Autowired 
-	public UserDAOImpl(SessionFactory sessionFactory) {
-		this.sessionFactory = sessionFactory;
-	}
+
 	
 	
 	@Override
 	public List<User> allUsers() {
 		List<User> users = new ArrayList<>();
-		Session session = sessionFactory.getCurrentSession();
+		Session session = sf.getCurrentSession();
 		users = session.createQuery("from User").getResultList();
 		return users;
 	}
 
 	@Override
 	public User getUserById(int userId) {
-		Session session = sessionFactory.getCurrentSession();
+		Session session = sf.getCurrentSession();
 		return session.get(User.class, userId);
 	}
 
 	@Override
 	public void createUser(User user) {
-		sessionFactory.getCurrentSession().persist(user);
+		sf.getCurrentSession().persist(user);
 	}
 
 	@Override
