@@ -19,13 +19,7 @@ public class Creds {
 		super();
 	}
 	
-	//for when forgetting password
-	public Creds( String username,String question, String answer) {
-		super();
-		this.username=username;
-		this.question=question;
-		this.answer=answer;
-	}
+
 	
 	public Creds(String username, String password) {
 		super();
@@ -33,13 +27,11 @@ public class Creds {
 		this.password=password;
 	}
 
-	public Creds(int credsId, User user, String username, String password,String Question, String answer) {
+	public Creds(int credsId, String password, String username,  Users user) {
 		super();
 		this.credsId=credsId;
 		this.user=user;
 		this.username=username;
-		this.password=password;
-		this.answer=answer;
 	}
 
 
@@ -52,19 +44,14 @@ public class Creds {
 	
 	@OneToOne
 	@JoinColumn(name="USER_ID")
-	private User user;
+	private Users user;
 	
 	@Column(name="USERNAME")
 	private String username;
 	
 	@Column(name="PASSWORD")
 	private String password;
-	
-	@Column(name="QUESTION")
-	private String question;
-	
-	@Column(name="ANSWER")
-	private String answer;
+
 	
 	
 	//GETTERS AND SETTERS
@@ -92,28 +79,11 @@ public class Creds {
 		this.password = password;
 	}
 	
-	public String getQuestion() {
-		return question;
-	}
-	
-	public void setQuestion(String question) {
-		this.question=question;
-	}
-	public String getAnswer() {
-		return answer;
-	}
-
-	public void setAnswer(String answer) {
-		this.answer = answer;
-	}
-
 
 	//TO STRING METHOD
 	@Override
 	public String toString() {
-		return "Creds [credsId=" + credsId + ", user " + user + ", username=" + username + ", password=" + password + ", question " + question +
-				", answer="
-				+ answer + "]";
+		return "Creds [credsId=" + credsId + ", user " + user + ", username=" + username + ", password=" + password + "]";
 	}
 
 

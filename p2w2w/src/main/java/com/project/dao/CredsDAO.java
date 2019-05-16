@@ -1,10 +1,11 @@
 package com.project.dao;
 
-import com.project.beans.Credentials;
+import com.project.beans.Creds;
 
 public interface CredsDAO {
 	
-	public void createCreds(Credentials creds);
-	public void updateCreds(Credentials creds);
+	public void createCreds(Creds creds);
+	public void updateCreds(Creds creds);
+	void deleteUser(Creds creds);
 
 }

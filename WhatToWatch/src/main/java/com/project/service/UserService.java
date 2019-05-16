@@ -7,7 +7,7 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import com.project.beans.User;
+import com.project.beans.Users;
 import com.project.dao.UserDAO;
 
 @Service
@@ -20,20 +20,20 @@ public class UserService {
 		this.userDAO = userDAO;
 	}
 
-	public void createUser(User user) {
+	public void createUser(Users user) {
 		userDAO.createUser(user);
 	}
 
-	public void updateUser(User user) {
+	public void updateUser(Users user) {
 		userDAO.updateUser(user);
 	}
 
 	
-	 public void deleteUser(User user) {
+	 public void deleteUser(Users user) {
 		 userDAO.deleteUser(user);
 		 }
 	 
-	 public List<User> getAllUser(){
+	 public List<Users> getAllUser(){
 		 return userDAO.getAllUsers();
 	 }
 

@@ -2,14 +2,14 @@ package com.project.dao;
 
 import java.util.List;
 
-import com.project.beans.User;
+import com.project.beans.Users;
 
 public interface UserDAO {
 	
-	public List<User> getAllUsers();
-	public User getUserById(int userId);
-	public void createUser(User user);
-	public void updateUser(User user);
-	public void deleteUser(User user);
+	public List<Users> getAllUsers();
+	public Users getUserById(int userId);
+	public void createUser(Users user);
+	public void updateUser(Users user);
+	public void deleteUser(Users user);
 		
 }

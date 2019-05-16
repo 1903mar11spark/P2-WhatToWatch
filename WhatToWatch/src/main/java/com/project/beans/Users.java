@@ -14,23 +14,26 @@ import javax.persistence.Table;
 
 @Entity
 @Table(name="USERS")
-public class User {
+public class Users {
 	
 	//CONSTRUCTORS	
-	public User() {
-		super();
+	public Users() {
+		super(); 
 	}
 	
-	public User(int userId, Creds creds, Tier tier, String firstname, String lastname, String email) {
+	
+	
+	public Users(int userId, Creds creds, String accountType, String firstname, String lastname) {
 		super();
 		this.userId = userId;
 		this.creds = creds;
-		this.tier=tier;
+		this.accountType = accountType;
 		this.firstname = firstname;
 		this.lastname = lastname;
-		this.email = email;
 	}
-	
+
+
+
 	//VARIABLES & COLUMNS
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO, generator = "userSequence")
@@ -42,9 +45,8 @@ public class User {
 	@JoinColumn(name="CREDS_ID")
 	private Creds creds;
 	
-	@Column(name="TIER")
-	@Enumerated(EnumType.STRING)
-	private Tier tier;
+	@Column(name="ACCOUNT_TYPE")
+	private String accountType;
 	
 	@Column(name="FIRSTNAME")
 	private String firstname;
@@ -52,8 +54,6 @@ public class User {
 	@Column(name="LASTNAME")
 	private String lastname;
 	
-	@Column(name="EMAIL")
-	private String email;
 	
 	
 	//GETTERS AND SETTERS
@@ -89,28 +89,20 @@ public class User {
 		this.lastname = lastname;
 	}
 
-	public String getEmail() {
-		return email;
+	public String getAccountType() {
+		return accountType;
 	}
 
-	public void setEmail(String email) {
-		this.email = email;
-	}
-	
-	public Tier getTier() {
-		return tier;
-	}
-
-	public void setTier(Tier tier) {
-		this.tier = tier;
+	public void setaccountType(String accountType) {
+		this.accountType = accountType;
 	}
 	
 	//TO STRING METHOD
 	@Override
 	public String toString() {
-		return "User [userId=" + userId + ", creds=" + creds + "Tier=" + tier + 
+		return "User [userId=" + userId + ", creds=" + creds + "accountType=" + accountType + 
 				", firstname=" + firstname
-				+ ", lastname=" + lastname + ", email=" + email + "]";
+				+ ", lastname=" + lastname +"]";
 	}
 
 

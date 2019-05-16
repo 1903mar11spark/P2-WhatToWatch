@@ -7,15 +7,12 @@ import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.hibernate.Transaction;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.stereotype.Repository;
-import org.springframework.transaction.annotation.Transactional;
 
-import com.project.beans.Credentials;
+import com.project.beans.Creds;
 import com.project.beans.Users;
 import com.revature.util.ConnectionUtil;
 
-@Repository(value="userDAO")
-@Transactional
+
 public class UserDAOImpl implements UserDAO {
 
 	private SessionFactory sf = ConnectionUtil.getSessionFactory();
@@ -42,6 +39,7 @@ public class UserDAOImpl implements UserDAO {
 	public void updateUser(Users user) {
 		try (Session s = sf.getCurrentSession()) {
 			Transaction tx = s.beginTransaction();
+			tx.commit();
 			s.update(user);
 
 		}
@@ -55,7 +53,7 @@ public class UserDAOImpl implements UserDAO {
 	}
 
 	@Override
-	public Users getUserByCreds(Credentials creds) {
+	public Users getUserByCreds(Creds creds) {
 		Users user = new Users();
 		int id = creds.getUser().getUsersId();
 		try (Session s = sf.getCurrentSession()) {

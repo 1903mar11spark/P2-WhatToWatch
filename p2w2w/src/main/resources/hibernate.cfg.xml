@@ -15,6 +15,6 @@
 		<!-- choose whether to start fresh or update existing ddl -->
 		<property name="hibernate.hbm2ddl.auto">update</property>
 		<mapping class="com.project.beans.Users"></mapping>
-		<mapping class="com.project.beans.Credentials"></mapping>
+		<mapping class="com.project.beans.Creds"></mapping>
 	</session-factory>
 </hibernate-configuration>

@@ -9,7 +9,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 import org.springframework.transaction.annotation.Transactional;
 
-import com.project.beans.User;
+import com.project.beans.Users;
 
 
 @Repository(value="userDAO")
@@ -24,36 +24,33 @@ public class UserDAOImpl implements UserDAO {
 		this.sf = sf;
 	}
 
-	
 
-	
-	
 	@Override
-	public List<User> getAllUsers() {
-		List<User> users = new ArrayList<>();
+	public List<Users> getAllUsers() {
+		List<Users> users = new ArrayList<>();
 		Session session = sf.getCurrentSession();
-		users = session.createQuery("from User").getResultList();
+		users = session.createQuery("from Users").getResultList();
 		return users;
 	}
 
 	@Override
-	public User getUserById(int userId) {
+	public Users getUserById(int userId) {
 		Session session = sf.getCurrentSession();
-		return session.get(User.class, userId);
+		return session.get(Users.class, userId);
 	}
 
 	@Override
-	public void createUser(User user) {
+	public void createUser(Users user) {
 		sf.getCurrentSession().persist(user);
 	}
 
 	@Override
-	public void updateUser(User user) {
+	public void updateUser(Users user) {
 		sf.getCurrentSession().saveOrUpdate(user);
 	}
 
 	@Override
-	public void deleteUser(User user) {
+	public void deleteUser(Users user) {
 		sf.getCurrentSession().delete(user);
 	}
 	

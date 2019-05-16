@@ -11,20 +11,20 @@ import javax.persistence.SequenceGenerator;
 import javax.persistence.Table;
 
 @Entity
-@Table(name="CREDENTIALS")
-public class Credentials {
+@Table(name="CREDS")
+public class Creds {
 	
-	public Credentials() {
+	public Creds() {
 		super();
 	}
 	
-	public Credentials(String username, String password) {
+	public Creds(String username, String password) {
 		super();
 		this.username=username;
 		this.password=password;
 	}
 	
-	public Credentials(int credId, Users user, String username, String password) {
+	public Creds(int credId, String password, String username,  Users user) {
 		super();
 		this.credId = credId;
 		this.user = user;
@@ -34,8 +34,8 @@ public class Credentials {
 
 	@Id
 	@GeneratedValue(strategy=GenerationType.AUTO, generator="credentialsSequence")
-	@SequenceGenerator(allocationSize=1, name="credentialsSequence", sequenceName="SQ_CRED_PK")
-	@Column(name="CRED_ID")
+	@SequenceGenerator(allocationSize=1, name="credentialsSequence", sequenceName="SQ_CREDS_PK")
+	@Column(name="CREDS_ID")
 	private int credId;
 	
 	@OneToOne

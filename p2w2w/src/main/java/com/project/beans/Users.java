@@ -19,13 +19,15 @@ public class Users {
 		super();
 	}
 
-	public Users(int usersId, String firstname, String lastname, AccountType accountType, Credentials creds) {
+	public Users(int usersId,Creds creds,String accountType, String firstname, String lastname) {
 		super();
 		this.usersId = usersId;
+		this.creds = creds;
+		this.accountType = accountType;
 		this.firstname = firstname;
 		this.lastname = lastname;
-		this.accountType = accountType;
-		this.creds = creds;
+		
+		
 	}
 
 	@Id
@@ -34,19 +36,18 @@ public class Users {
 	@Column(name="USER_ID")
 	private int usersId;
 	
+	@Column(name="ACCOUNT_TYPE")
+	private String accountType;
+	
 	@Column(name="FIRSTNAME")
 	private String firstname;
 	
 	@Column(name="LASTNAME")
 	private String lastname;
 	
-	
-	@Column(name="ACCOUNT_TYPE")
-	private AccountType accountType;
-	
 	@OneToOne
-	@JoinColumn(name="CRED_ID")
-	private Credentials creds;
+	@JoinColumn(name="CREDS_ID")
+	private Creds creds;
 
 	public int getUsersId() {
 		return usersId;
@@ -72,27 +73,29 @@ public class Users {
 		this.lastname = lastname;
 	}
 
-	public AccountType getAccountType() {
+	public String getAccountType() {
 		return accountType;
 	}
 
-	public void setAccountType(AccountType accountType) {
+	public void setTier(String accountType) {
 		this.accountType = accountType;
 	}
 
-	public Credentials getCreds() {
+	public Creds getCreds() {
 		return creds;
 	}
 
-	public void setCreds(Credentials creds) {
+	public void setCreds(Creds creds) {
 		this.creds = creds;
 	}
 
 	@Override
 	public String toString() {
-		return "Users [usersId=" + usersId + ", firstname=" + firstname + ", lastname=" + lastname + ", accountType="
-				+ accountType +  "]";
+		return "Users [usersId=" + usersId + ", accountType=" + accountType + ", firstname=" + firstname + ", lastname="
+				+ lastname + ", creds=" + creds + "]";
 	}
+
+	
 
 	
 

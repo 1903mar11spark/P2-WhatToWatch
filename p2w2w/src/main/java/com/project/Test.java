@@ -1,12 +1,9 @@
 package com.project;
 
-import java.util.ArrayList;
-import java.util.List;
 
 import org.hibernate.SessionFactory;
 
-import com.project.beans.AccountType;
-import com.project.beans.Credentials;
+import com.project.beans.Creds;
 import com.project.beans.Users;
 import com.project.dao.CredsDAO;
 import com.project.dao.CredsDAOImpl;
@@ -22,26 +19,40 @@ public class Test {
 		UserDAO ud = new UserDAOImpl(sf);
 		CredsDAO cd = new CredsDAOImpl(sf);
 		
-		Users u = new Users(1,"Sally", "Green",AccountType.ADMIN,  null);
-		Credentials c = new Credentials(1, u, "sally.green", "dog1234");
 		
-		Users u2 = new Users(2, "Benny", "Smith", AccountType.BASIC, null);
-		Users u3 = new Users(3, "Jenny", "Jones", AccountType.MODERATOR, null);
-		Users u4 = new Users(4, "Sam", "Smith", AccountType.PREMIUM, null);
+		  Users u1 = new Users(1, null, "admin","Sally", "Green"); 
+		  Users u2 = new Users(2, null, "basic", "Benny", "Smith"); 
+		  Users u3 = new Users(3, null, "moderator","Jenny", "Jones"); 
+		  Users u4 = new Users(4, null, "premium","Sam", "Smith");
+		  
+		  
+//		  Users u5 = new Users(8, null, "Harry", "Potter", "basic");
+
+		  Creds c1 = new Creds(1, "dog1234", "sally", u1); 
+		  Creds c2 = new Creds(2, "cat", "benny", u2); 
+		  Creds c3 = new Creds(3, "fish", "jenny", u3); 
+		  Creds c4 = new Creds(4, "pig", "sam", u4);
+		  
+		/*
+		 * u1.setCreds(c1); u2.setCreds(c2); u3.setCreds(c3); u4.setCreds(c4);
+		 */
 		
-		u.setCreds(c);
-		ud.createUser(u2);
-		ud.createUser(u3);
-		ud.createUser(u4);
+		  cd.createCreds(c1);
+		 
+		  
+		/*
+		 * ud.createUser(u1); ud.createUser(u2); ud.createUser(u3); ud.createUser(u4);
+		 */
+		  
+		  
 		
-		ud.createUser(u);
-		cd.createCreds(c);
-		ud.updateUser(u);
+		  
+	
 		
-		List<Users> users = new ArrayList<>();
-		users = ud.getAllUsers();
 		
-		System.out.println(users);
+		
+		
+		//System.out.println(users);
 		
 		
 		

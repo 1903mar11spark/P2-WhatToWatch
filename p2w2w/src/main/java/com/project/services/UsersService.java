@@ -6,7 +6,7 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import com.project.beans.Credentials;
+import com.project.beans.Creds;
 import com.project.beans.Users;
 import com.project.dao.UserDAO;
 import com.project.dao.UserDAOImpl;
@@ -29,7 +29,7 @@ public class UsersService {
 		userDAO.updateUser(user);
 	}
 	
-	public Users getUserByCreds(Credentials creds) {
+	public Users getUserByCreds(Creds creds) {
 		return userDAO.getUserByCreds(creds);
 	}
 	
